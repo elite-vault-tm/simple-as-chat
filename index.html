@@ -1,1087 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simple As Chat ✨ — 5 ChatGPT Prompts I'd Use Again Immediately</title>
-<meta name="description" content="You've been in ChatGPT this whole time. You just needed better ways to talk to it. 5 prompts that change everything.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple as Chat - Prompt Engineering Made Easy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!-- Cabinet Grotesk + Satoshi via Fontshare -->
-<link rel="preconnect" href="https://api.fontshare.com">
-<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@900,800,700,500&f[]=satoshi@700,500,400,300&display=swap" rel="stylesheet">
-<!-- Dancing Script for wordmark only -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+        html {
+            scroll-behavior: smooth;
+        }
 
-<style>
-/* ═══════════════════════════════════════
-   TOKENS
-═══════════════════════════════════════ */
-:root {
-  /* surface */
-  --base:       #0C0C0C;
-  --surface-1:  #111111;
-  --surface-2:  #161616;
-  --surface-3:  #1c1c1c;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-  /* brand */
-  --fuchsia:    #F0197D;
-  --fuchsia-20: rgba(240,25,125,0.20);
-  --fuchsia-10: rgba(240,25,125,0.10);
-  --fuchsia-06: rgba(240,25,125,0.06);
-  --gold:       #C9A84C;
-  --gold-30:    rgba(201,168,76,0.30);
-  --gold-12:    rgba(201,168,76,0.12);
-  --gold-06:    rgba(201,168,76,0.06);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-  /* text */
-  --text-100: #FFFFFF;
-  --text-75:  rgba(255,255,255,0.75);
-  --text-45:  rgba(255,255,255,0.45);
-  --text-25:  rgba(255,255,255,0.25);
-  --text-12:  rgba(255,255,255,0.12);
-  --text-07:  rgba(255,255,255,0.07);
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            color: white;
+        }
 
-  /* type */
-  --font-display: 'Cabinet Grotesk', sans-serif;
-  --font-body:    'Satoshi', sans-serif;
-  --font-mark:    'Dancing Script', cursive;
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
 
-  /* radius */
-  --r-sm:  10px;
-  --r-md:  16px;
-  --r-lg:  22px;
-  --r-xl:  28px;
-}
+        header p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
 
-/* ═══════════════════════════════════════
-   RESET + BASE
-═══════════════════════════════════════ */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  background:var(--base);
-  color:var(--text-100);
-  font-family:var(--font-body);
-  font-size:16px;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
 
-/* ═══════════════════════════════════════
-   HERO
-═══════════════════════════════════════ */
-.hero{
-  min-height:100svh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:88px 28px 72px;
-  position:relative;
-  overflow:hidden;
-}
+        .cta-button:hover {
+            background-color: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
 
-/* ambient glow blob */
-.hero-blob{
-  position:absolute;
-  top:-100px;left:50%;
-  transform:translateX(-50%);
-  width:640px;height:640px;
-  background:radial-gradient(ellipse,rgba(240,25,125,0.09) 0%,transparent 62%);
-  pointer-events:none;
-}
-.hero-blob-2{
-  position:absolute;
-  bottom:-80px;right:-100px;
-  width:400px;height:400px;
-  background:radial-gradient(ellipse,rgba(201,168,76,0.06) 0%,transparent 65%);
-  pointer-events:none;
-}
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
 
-/* wordmark */
-.wordmark{
-  font-family:var(--font-mark);
-  font-size:clamp(32px,9vw,52px);
-  font-weight:700;
-  color:var(--gold);
-  letter-spacing:0.01em;
-  line-height:1.1;
-  margin-bottom:4px;
-  text-shadow:
-    0 0 24px rgba(201,168,76,0.6),
-    0 0 60px rgba(201,168,76,0.28),
-    0 0 100px rgba(201,168,76,0.12);
-  animation:fadeUp .7s ease forwards, goldPulse 3.5s ease-in-out infinite 1.2s;
-  opacity:0;
-}
+        .feature {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
 
-/* emotional trigger headline */
-.hero-trigger{
-  font-family:var(--font-display);
-  font-size:clamp(13px,3.5vw,15px);
-  font-weight:500;
-  letter-spacing:0.04em;
-  text-transform:uppercase;
-  color:var(--text-45);
-  margin-bottom:20px;
-  opacity:0;
-  animation:fadeUp .6s ease forwards .18s;
-}
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
 
-.hero-hl{
-  font-family:var(--font-display);
-  font-size:clamp(36px,9.5vw,58px);
-  font-weight:900;
-  line-height:1.05;
-  letter-spacing:-0.03em;
-  margin-bottom:10px;
-  opacity:0;
-  animation:fadeUp .6s ease forwards .3s;
-}
-.hero-hl .pink{color:var(--fuchsia);}
-.hero-hl .block{display:block;}
+        .feature h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
 
-.hero-eyes{
-  font-size:clamp(24px,6vw,34px);
-  margin-bottom:20px;
-  opacity:0;
-  animation:fadeUp .6s ease forwards .4s;
-}
+        .feature p {
+            color: #666;
+            font-size: 1rem;
+        }
 
-.hero-sub{
-  font-family:var(--font-body);
-  font-size:15px;
-  font-weight:400;
-  color:var(--text-45);
-  max-width:300px;
-  line-height:1.7;
-  margin-bottom:36px;
-  opacity:0;
-  animation:fadeUp .6s ease forwards .5s;
-}
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
 
-/* emotional recognition card */
-.hero-card{
-  width:100%;
-  max-width:340px;
-  background:var(--surface-1);
-  border:1px solid var(--text-07);
-  border-left:3px solid var(--fuchsia);
-  border-radius:var(--r-lg);
-  padding:22px 24px;
-  text-align:left;
-  opacity:0;
-  animation:fadeUp .6s ease forwards .62s;
-}
-.hero-card .eyebrow{
-  font-family:var(--font-body);
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--fuchsia);
-  margin-bottom:10px;
-}
-.hero-card p{
-  font-family:var(--font-body);
-  font-size:15px;
-  color:var(--text-75);
-  line-height:1.72;
-  font-style:italic;
-}
-.hero-card strong{
-  font-style:normal;
-  color:var(--text-100);
-  font-weight:600;
-}
-.hero-card .soft{
-  display:block;
-  margin-top:10px;
-  font-size:13px;
-  color:var(--text-25);
-  font-style:normal;
-}
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+            color: white;
+            text-align: center;
+        }
 
-/* scroll hint */
-.scroll-hint{
-  position:absolute;
-  bottom:24px;left:50%;
-  transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:5px;
-  opacity:0;
-  animation:fadeUp .6s ease forwards 1.2s;
-}
-.scroll-hint span{
-  font-family:var(--font-body);
-  font-size:10px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--text-25);
-}
-.scroll-arrow{animation:bob 2.4s ease-in-out infinite;}
+        .stat {
+            padding: 20px;
+        }
 
-/* ═══════════════════════════════════════
-   INTRO
-═══════════════════════════════════════ */
-.intro{
-  max-width:520px;
-  margin:0 auto;
-  padding:60px 28px 8px;
-  text-align:center;
-}
-.intro-hl{
-  font-family:var(--font-display);
-  font-size:clamp(20px,5vw,26px);
-  font-weight:800;
-  line-height:1.3;
-  letter-spacing:-0.02em;
-  margin-bottom:14px;
-  color:var(--text-100);
-}
-.intro-hl .pink{color:var(--fuchsia);}
-.intro-body{
-  font-family:var(--font-body);
-  font-size:15px;
-  color:var(--text-45);
-  line-height:1.8;
-}
-.intro-body strong{color:var(--text-75);font-weight:500;}
-.intro-cta{
-  display:inline-block;
-  margin-top:16px;
-  color:var(--fuchsia);
-  font-weight:600;
-  font-style:italic;
-  font-size:15px;
-}
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
 
-/* ═══════════════════════════════════════
-   VAULT DIVIDER
-═══════════════════════════════════════ */
-.vault-divider{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  max-width:520px;
-  margin:44px auto 0;
-  padding:0 20px;
-}
-.vault-divider .line{
-  flex:1;height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold-30),transparent);
-}
-.vault-divider .label{
-  font-family:var(--font-body);
-  font-size:10px;font-weight:700;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);
-  white-space:nowrap;
-}
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
 
-/* ═══════════════════════════════════════
-   PROMPTS WRAPPER
-═══════════════════════════════════════ */
-.prompts-wrap{
-  max-width:560px;
-  margin:0 auto;
-  padding:32px 20px 28px;
-}
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
 
-/* ═══════════════════════════════════════
-   COMMENTARY
-═══════════════════════════════════════ */
-.commentary{
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
-  padding:20px 6px 6px;
-  font-family:var(--font-body);
-  font-size:14px;
-  font-weight:400;
-  color:var(--text-45);
-  font-style:italic;
-  line-height:1.55;
-}
-.commentary .pip{
-  width:5px;height:5px;border-radius:50%;
-  background:var(--fuchsia);opacity:.5;
-  flex-shrink:0;margin-top:7px;
-}
+            header p {
+                font-size: 1.1rem;
+            }
 
-/* ═══════════════════════════════════════
-   PROMPT CARD — BASE
-═══════════════════════════════════════ */
-.prompt-card{
-  background:var(--surface-2);
-  border:1px solid var(--text-07);
-  border-radius:var(--r-xl);
-  padding:30px 26px 24px;
-  margin-bottom:16px;
-  position:relative;
-  overflow:hidden;
-  opacity:0;
-  transform:translateY(24px);
-  transition:
-    opacity .5s ease,
-    transform .5s ease,
-    border-color .3s ease,
-    box-shadow .3s ease,
-    background .25s ease;
-}
-.prompt-card.visible{opacity:1;transform:translateY(0);}
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
 
-/* top shimmer line */
-.prompt-card::before{
-  content:'';
-  position:absolute;
-  top:0;left:15%;right:15%;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(240,25,125,.3),transparent);
-  opacity:0;transition:opacity .3s;
-}
-.prompt-card:hover{
-  border-color:rgba(240,25,125,.22);
-  box-shadow:0 8px 48px rgba(240,25,125,.1);
-  background:var(--surface-3);
-}
-.prompt-card:hover::before{opacity:1;}
+        .hero-hl {
+            color: white;
+            font-size: 2.5rem;
+            margin: 40px 0 30px;
+        }
 
-/* ── FEATURED CARD ── */
-.prompt-card.feat{
-  background:linear-gradient(150deg,#1a0e16 0%,#161616 55%,#161616 100%);
-  border-color:rgba(240,25,125,.22);
-}
-.prompt-card.feat::before{opacity:.6;}
+        .hero-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 5px solid #ff6b6b;
+        }
 
-/* gold top accent for featured */
-.prompt-card.feat::after{
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold-30),transparent);
-}
+        .eyebrow {
+            color: #667eea;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
 
-/* ── CARD ANATOMY ── */
-.card-eye{
-  display:flex;align-items:center;gap:8px;
-  margin-bottom:12px;
-}
+        .soft {
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
 
-/* vault number — GOLD, display font */
-.card-num{
-  font-family:var(--font-display);
-  font-size:11px;font-weight:700;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);
-}
+        .scroll-hint {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            animation: bounce 2s infinite;
+        }
 
-.card-badge{
-  font-family:var(--font-body);
-  font-size:10px;font-weight:700;
-  letter-spacing:.12em;text-transform:uppercase;
-  color:var(--fuchsia);
-  background:var(--fuchsia-10);
-  border:1px solid var(--fuchsia-20);
-  padding:3px 10px;border-radius:100px;
-}
+        @keyframes bounce {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
 
-/* TITLE — biggest, boldest, Cabinet Black */
-.card-title{
-  font-family:var(--font-display);
-  font-size:clamp(22px,6vw,28px);
-  font-weight:900;
-  line-height:1.1;
-  letter-spacing:-0.025em;
-  color:var(--text-100);
-  margin-bottom:8px;
-}
+        .intro-note {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
 
-/* DESCRIPTOR — Satoshi, whisper weight */
-.card-desc{
-  font-family:var(--font-body);
-  font-size:14px;
-  font-weight:300;
-  color:var(--text-45);
-  font-style:italic;
-  line-height:1.55;
-  margin-bottom:22px;
-}
+        .prompt-list {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
 
-.card-rule{
-  height:1px;
-  background:var(--text-07);
-  margin-bottom:22px;
-}
+        .prompt-list h2 {
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
 
-/* PROMPT BODY — Satoshi Regular */
-.prompt-body{
-  font-family:var(--font-body);
-  font-size:14px;
-  font-weight:400;
-  line-height:1.85;
-  color:var(--text-75);
-  white-space:pre-wrap;
-  word-break:break-word;
-}
+        .prompt-item {
+            padding: 20px;
+            margin: 15px 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
 
-/* PLACEHOLDERS — fuchsia, punchy */
-.ph{
-  color:var(--fuchsia);
-  font-weight:700;
-  background:var(--fuchsia-06);
-  padding:2px 7px;
-  border-radius:6px;
-  font-style:normal;
-}
+        .prompt-item h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
 
-/* COPY BUTTON */
-.copy-btn{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  width:100%;
-  margin-top:22px;
-  padding:16px 20px;
-  background:var(--fuchsia);
-  border:none;
-  border-radius:var(--r-md);
-  color:var(--text-100);
-  font-family:var(--font-body);
-  font-size:14px;font-weight:700;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-  cursor:pointer;
-  min-height:52px;
-  transition:opacity .2s,transform .15s,box-shadow .2s;
-  -webkit-tap-highlight-color:transparent;
-  box-shadow:0 4px 24px rgba(240,25,125,.3);
-}
-.copy-btn:hover{opacity:.88;transform:translateY(-1px);box-shadow:0 8px 32px rgba(240,25,125,.38);}
-.copy-btn:active{transform:scale(.98);}
-.copy-btn.copied{
-  background:linear-gradient(135deg,#1a1a1a,#222);
-  color:var(--fuchsia);
-  box-shadow:none;
-  border:1.5px solid var(--fuchsia-20);
-}
+        .prompt-item p {
+            color: #666;
+            line-height: 1.8;
+        }
 
-/* OUTCOME LINE */
-.card-outcome{
-  margin-top:14px;
-  font-family:var(--font-body);
-  font-size:12.5px;
-  font-weight:300;
-  color:var(--text-25);
-  font-style:italic;
-  text-align:center;
-  line-height:1.55;
-}
+        .code-example {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
 
-/* ═══════════════════════════════════════
-   SEE EXAMPLE
-═══════════════════════════════════════ */
-.ex-toggle{
-  display:inline-flex;align-items:center;gap:7px;
-  margin-top:18px;
-  background:none;border:none;
-  color:var(--text-45);
-  font-family:var(--font-body);
-  font-size:13px;font-weight:500;
-  cursor:pointer;padding:0;
-  transition:color .2s;
-  -webkit-tap-highlight-color:transparent;
-}
-.ex-toggle:hover{color:var(--fuchsia);}
-.ex-toggle .arr{display:inline-block;transition:transform .3s ease;font-size:16px;line-height:1;}
-.ex-toggle.open .arr{transform:rotate(90deg);}
+        .success-message {
+            background: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+        }
 
-.ex-panel{max-height:0;overflow:hidden;transition:max-height .44s cubic-bezier(.4,0,.2,1);}
-.ex-panel.open{max-height:900px;}
-
-.ex-inner{
-  margin-top:22px;
-  border-top:1px solid var(--text-07);
-  padding-top:22px;
-  display:flex;flex-direction:column;gap:14px;
-}
-
-.ex-cols{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-@media(max-width:420px){.ex-cols{grid-template-columns:1fr;}}
-
-.ex-col{display:flex;flex-direction:column;gap:7px;}
-
-.ex-lbl{
-  font-family:var(--font-body);
-  font-size:10px;font-weight:700;
-  letter-spacing:.16em;text-transform:uppercase;
-}
-.ex-lbl.b{color:var(--text-25);}
-.ex-lbl.a{color:var(--fuchsia);}
-
-.ex-block{
-  border-radius:var(--r-sm);
-  padding:14px 16px;
-  flex:1;
-}
-.ex-block.before{
-  background:rgba(255,255,255,.03);
-  border:1px solid var(--text-07);
-}
-.ex-block.after{
-  background:var(--fuchsia-06);
-  border:1px solid var(--fuchsia-20);
-}
-
-.ex-text{
-  font-family:var(--font-body);
-  font-size:13px;font-weight:400;
-  line-height:1.65;color:var(--text-75);
-}
-.ex-block.before .ex-text{color:var(--text-25);}
-
-.ex-wow{
-  font-family:var(--font-body);
-  font-size:13px;font-weight:600;
-  font-style:italic;
-  color:var(--fuchsia);
-  text-align:center;
-  padding:12px 16px;
-  background:var(--fuchsia-06);
-  border:1px solid var(--fuchsia-20);
-  border-radius:var(--r-sm);
-  line-height:1.5;
-}
-
-/* ═══════════════════════════════════════
-   BRIDGE
-═══════════════════════════════════════ */
-.bridge{
-  max-width:520px;
-  margin:36px auto 0;
-  padding:0 28px;
-}
-.bridge-card{
-  background:var(--surface-1);
-  border:1px solid var(--text-07);
-  border-top:2px solid var(--gold-30);
-  border-radius:var(--r-xl);
-  padding:32px 28px;
-  text-align:center;
-}
-.bridge-emoji{font-size:28px;margin-bottom:16px;}
-.bridge-hl{
-  font-family:var(--font-display);
-  font-size:clamp(18px,5vw,22px);
-  font-weight:800;
-  line-height:1.3;
-  letter-spacing:-0.02em;
-  color:var(--text-100);
-  margin-bottom:12px;
-}
-.bridge-hl .pink{color:var(--fuchsia);}
-.bridge-body{
-  font-family:var(--font-body);
-  font-size:15px;
-  color:var(--text-45);
-  line-height:1.8;
-}
-.bridge-body strong{color:var(--text-75);font-weight:500;}
-
-/* ═══════════════════════════════════════
-   CLOSE / CTA
-═══════════════════════════════════════ */
-.close-section{
-  max-width:520px;
-  margin:0 auto;
-  padding:64px 28px 48px;
-  text-align:center;
-  border-top:1px solid var(--text-07);
-  margin-top:60px;
-}
-
-.ev-badge{
-  display:inline-flex;align-items:center;gap:7px;
-  background:var(--gold-06);
-  border:1px solid var(--gold-12);
-  border-radius:100px;
-  padding:7px 16px;
-  font-family:var(--font-body);
-  font-size:11px;font-weight:700;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:28px;
-}
-
-.close-hl{
-  font-family:var(--font-display);
-  font-size:clamp(26px,7vw,36px);
-  font-weight:900;
-  line-height:1.15;
-  letter-spacing:-0.025em;
-  margin-bottom:18px;
-}
-.close-hl .pink{color:var(--fuchsia);}
-
-.close-body{
-  font-family:var(--font-body);
-  font-size:15px;
-  color:var(--text-45);
-  line-height:1.8;
-  max-width:300px;
-  margin:0 auto 36px;
-}
-
-.follow-btn{
-  display:inline-flex;align-items:center;gap:10px;
-  padding:18px 32px;
-  background:var(--fuchsia);
-  color:var(--text-100);
-  font-family:var(--font-body);
-  font-size:15px;font-weight:700;
-  letter-spacing:.04em;text-transform:uppercase;
-  border-radius:var(--r-md);
-  text-decoration:none;
-  box-shadow:0 4px 28px rgba(240,25,125,.32);
-  transition:opacity .2s,transform .2s,box-shadow .2s;
-  -webkit-tap-highlight-color:transparent;
-}
-.follow-btn:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 36px rgba(240,25,125,.4);}
-
-/* ═══════════════════════════════════════
-   SITE FOOTER
-═══════════════════════════════════════ */
-.site-footer{
-  border-top:1px solid var(--text-07);
-  padding:32px 28px 44px;
-}
-.footer-inner{
-  max-width:520px;
-  margin:0 auto;
-  text-align:center;
-  display:flex;flex-direction:column;gap:10px;
-}
-.footer-brand{
-  font-family:var(--font-mark);
-  font-size:20px;color:var(--gold);
-  text-shadow:0 0 14px rgba(201,168,76,.4);
-}
-.footer-by{
-  font-family:var(--font-body);
-  font-size:12px;color:var(--text-25);line-height:1.65;
-}
-.footer-links{
-  display:flex;flex-wrap:wrap;
-  justify-content:center;align-items:center;
-  gap:6px 10px;
-  font-family:var(--font-body);
-  font-size:12px;color:var(--text-25);
-}
-.footer-links a{color:var(--text-45);text-decoration:none;transition:color .2s;}
-.footer-links a:hover{color:var(--fuchsia);}
-
-/* ═══════════════════════════════════════
-   ANIMATIONS
-═══════════════════════════════════════ */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(20px);}
-  to{opacity:1;transform:translateY(0);}
-}
-@keyframes bob{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(7px);}
-}
-@keyframes goldPulse{
-  0%,100%{text-shadow:0 0 24px rgba(201,168,76,.6),0 0 60px rgba(201,168,76,.28),0 0 100px rgba(201,168,76,.12);}
-  50%{text-shadow:0 0 36px rgba(201,168,76,.85),0 0 80px rgba(201,168,76,.45),0 0 140px rgba(201,168,76,.2);}
-}
-
-/* ═══════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════ */
-@media(max-width:400px){
-  .hero{padding:72px 20px 60px;}
-  .prompts-wrap{padding:24px 16px;}
-  .prompt-card{padding:24px 18px 20px;}
-  .bridge{padding:0 20px;}
-  .close-section{padding:52px 20px 40px;}
-}
-</style>
+        .bridge-text {
+            color: white;
+            font-size: 1.2rem;
+            margin: 30px 0;
+            text-align: center;
+            opacity: 0.95;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>Simple as Chat</h1>
+        <p>Master ChatGPT with 5 essential prompts</p>
+        <a href="#prompts" class="cta-button">Get Started</a>
+    </header>
 
-<!-- ════════ HERO ════════ -->
-<section class="hero">
-  <div class="hero-blob"></div>
-  <div class="hero-blob-2"></div>
-
-  <div class="wordmark">It's as Simple as Chat...</div>
-
-  <p class="hero-trigger">why dId ChatGPT stop working for me? 😭</p>
-
-  <h1 class="hero-hl">
-    <span class="block">5 Prompts That</span>
-    <span class="block pink">Finally Make It</span>
-    <span class="block">Click 👀</span>
-  </h1>
-
-  <p class="hero-sub">
-    You've been in ChatGPT this whole time.<br>
-    You just needed better ways to talk to it.
-  </p>
-
-  <section class="special-quote-wrap" aria-label="Featured quote">
-  <div class="special-quote">
-    <span class="special-quote-label">real talk</span>
-    <p class="special-quote-text">
-      ChatGPT wasn't the problem.
-      <span class="soft-break">
-        You just needed to know how to direct it. Once that clicks? Everything gets easier. These 5 prompts are where that starts. 🖤
-      </span>
-    </p>
-  </div>
-</section>
-
-  <div class="scroll-hint">
-    <span>scroll to start</span>
-    <svg class="scroll-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M8 3v10M8 13l-4-4M8 13l4-4" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </div>
-</section>
-
-<!-- ════════ INTRO ════════ -->
-<div class="intro">
-  <h2 class="intro-hl">
-    You don't need a new tool.<br>You need <span class="pink">better direction.</span>
-  </h2>
-  <p class="intro-body">
-    These 5 prompts work inside ChatGPT — the tool you're already in.<br>
-    <strong>Copy one. Try it right now. Feel the difference.</strong>
-    <span class="intro-cta">That's literally all this is. 👇</span>
-  </p>
-</div>
-
-<!-- vault divider -->
-<div class="vault-divider">
-  <div class="line"></div>
-  <span class="label">✦ The Vault ✦</span>
-  <div class="line"></div>
-</div>
-
-<!-- ════════ PROMPTS ════════ -->
-<div class="prompts-wrap">
-
-  <!-- ── CARD 1 ── -->
-  <div class="prompt-card" data-card>
-    <div class="card-eye">
-      <span class="card-num">Vault 01</span>
-      <span class="card-badge">Start here</span>
-    </div>
-    <h2 class="card-title">Who Are You Talking To?</h2>
-    <p class="card-desc">If your content isn't connecting… this is probably why.</p>
-    <div class="card-rule"></div>
-    <div class="prompt-body" id="p1">Help me figure out who my content is really meant for based on my <span class="ph">[brand, niche, business, content style, or goals]</span>.
-
-I want to understand the type of people most likely to connect with my content, trust my message, engage with my page, and follow what I create.
-
-Include:
-• The type of audience this brand or content naturally attracts
-• Their mindset, interests, habits, and online behavior
-• What they are probably struggling with right now
-• The kind of content they would stop scrolling for
-• What wording, tone, or messaging connects with them most
-• What could make them trust or relate to this brand faster
-• Content ideas designed specifically for this audience
-
-Keep everything realistic, modern, and focused on real social media behavior.</div>
-    <button class="copy-btn" onclick="copyPrompt('p1',this)">
-      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 10V2.5A.5.5 0 012.5 2H10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-      Copy Prompt
-    </button>
-    <p class="card-outcome">Walk away knowing exactly who you're creating for — and how to actually reach them.</p>
-  </div>
-
-  <div class="commentary">
-    <span class="pip"></span>
-    Once you know who you're really talking to… watch how differently everything starts to land. 🖤
-  </div>
-
-  <!-- ── CARD 2 ── -->
-  <div class="prompt-card" data-card>
-    <div class="card-eye"><span class="card-num">Vault 02</span></div>
-    <h2 class="card-title">Make It Look Like You</h2>
-    <p class="card-desc">Your content should feel recognizable the moment people see it.</p>
-    <div class="card-rule"></div>
-    <div class="prompt-body" id="p2">Act as a strategic creative director for <span class="ph">[brand, business, page, or project]</span>.
-
-Help me build a complete visual direction that feels connected and recognizable.
-
-Include:
-• A color palette with hex codes and the feeling each color gives off
-• Font pairings for headings, captions, and overall brand use
-• The overall visual style and energy of the brand
-• Mood and aesthetic keywords that match the brand vibe
-• 3 brand or creator references whose visual style matches this direction
-• What would make this brand instantly recognizable online
-• The overall feeling people should get when they land on the page
-
-Make the final result feel intentional, modern, and easy to maintain across social media.</div>
-    <button class="copy-btn" onclick="copyPrompt('p2',this)">
-      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 10V2.5A.5.5 0 012.5 2H10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-      Copy Prompt
-    </button>
-    <p class="card-outcome">A complete visual direction you can actually maintain — not just a mood board that collects dust.</p>
-  </div>
-
-  <div class="commentary">
-    <span class="pip"></span>
-    Okay NOW we're getting somewhere. This one changes how your whole page FEELS to people. 👀
-  </div>
-
-  <!-- ── CARD 3 — FEATURED ── -->
-  <div class="prompt-card feat" data-card>
-    <div class="card-eye">
-      <span class="card-num">Vault 03</span>
-      <span class="card-badge">Fan favorite</span>
-    </div>
-    <h2 class="card-title">Say It Better</h2>
-    <p class="card-desc">Paste what you wrote. Get back something that actually sounds like you.</p>
-    <div class="card-rule"></div>
-    <div class="prompt-body" id="p3">Rewrite this content: <span class="ph">[paste content here]</span> so it sounds more natural, conversational, and easier to connect with online.
-
-I want the final version to feel human, clear, engaging, and true to my personality — instead of sounding robotic, corporate, or forced.
-
-Include:
-• A cleaner, smoother rewrite of the original content
-• Stronger wording where the message feels weak
-• Better flow and pacing throughout
-• Ways to make the content easier to read on social media
-• Stronger hooks, transitions, or ending lines if needed
-• Caption-style wording that feels modern and natural
-• Optional CTA ideas that match the tone
-
-Keep the tone warm, conversational, confident, and easy to understand.</div>
-    <button class="copy-btn" onclick="copyPrompt('p3',this)">
-      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 10V2.5A.5.5 0 012.5 2H10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-      Copy Prompt
-    </button>
-    <p class="card-outcome">Content that finally sounds like a real person wrote it — because that's what people actually stop for.</p>
-
-    <button class="ex-toggle" onclick="toggleEx('ex3',this)">
-      <span class="arr">›</span> See the difference →
-    </button>
-    <div class="ex-panel" id="ex3">
-      <div class="ex-inner">
-        <div class="ex-cols">
-          <div class="ex-col">
-            <p class="ex-lbl b">What most people type</p>
-            <div class="ex-block before">
-              <p class="ex-text">"I am a content creator who specializes in providing high-quality content for social media platforms to help businesses grow their online presence."</p>
+    <div class="container">
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Essential Prompts</div>
             </div>
-          </div>
-          <div class="ex-col">
-            <p class="ex-lbl a">After this prompt</p>
-            <div class="ex-block after">
-              <p class="ex-text">"I help small business owners stop blending in online. If your content feels like everyone else's… we probably need to talk. 👀"</p>
+            <div class="stat">
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">Users Empowered</div>
             </div>
-          </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Free Access</div>
+            </div>
         </div>
-        <p class="ex-wow">Same idea. Completely different energy. THAT'S what this prompt does. ✨</p>
-      </div>
-    </div>
-  </div>
 
-  <div class="commentary">
-    <span class="pip"></span>
-    This one right here? Whew. 👀 This is the one that saves people HOURS of staring at a blank screen honestly.
-  </div>
-
-  <!-- ── CARD 4 ── -->
-  <div class="prompt-card" data-card>
-    <div class="card-eye"><span class="card-num">Vault 04</span></div>
-    <h2 class="card-title">Plan Your Next Video</h2>
-    <p class="card-desc">Stop staring at a blank screen. This prompt builds the whole plan.</p>
-    <div class="card-rule"></div>
-    <div class="prompt-body" id="p4">Create a short-form video plan for <span class="ph">[your topic]</span> for <span class="ph">[Reels, TikTok, Shorts, Facebook, etc]</span>.
-
-I want this video to feel natural, attention-grabbing, and paced for social media.
-
-Include:
-• A strong opening hook for the first few seconds
-• A full talking script broken down by scene or moment
-• Ideas for camera angles, B-roll, or screen recordings
-• Suggestions for pacing and where to speed up or slow down
-• Caption or on-screen text ideas
-• Ways to keep people watching longer
-• A strong ending or CTA that feels natural
-• Thumbnail or cover text ideas
-
-Keep everything conversational and easy to film without a big production setup.</div>
-    <button class="copy-btn" onclick="copyPrompt('p4',this)">
-      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 10V2.5A.5.5 0 012.5 2H10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-      Copy Prompt
-    </button>
-    <p class="card-outcome">Hook, script, pacing, CTA — the whole video plan, ready before you even hit record.</p>
-  </div>
-
-  <div class="commentary">
-    <span class="pip"></span>
-    Last one. And honestly? This might be the one people come back to the most. 👇
-  </div>
-
-  <!-- ── CARD 5 — FEATURED ── -->
-  <div class="prompt-card feat" data-card>
-    <div class="card-eye">
-      <span class="card-num">Vault 05</span>
-      <span class="card-badge">Game changer</span>
-    </div>
-    <h2 class="card-title">One Idea Should Never Just Be One Post</h2>
-    <p class="card-desc">You do NOT need to keep starting from scratch every time you post.</p>
-    <div class="card-rule"></div>
-    <div class="prompt-body" id="p5">Take this content: <span class="ph">[paste content here]</span> and turn it into multiple content pieces for different social media platforms.
-
-I want each version to feel natural for the platform it's going on — instead of sounding copied and pasted everywhere.
-
-Include:
-• A short-form video idea with a hook and talking points
-• A carousel version with slide-by-slide ideas
-• A Facebook post version
-• An Instagram caption version
-• A Threads or Twitter/X version
-• Additional short-form content ideas from the main topic
-• CTA ideas that match each platform naturally
-• Suggestions for visuals or content style for each version
-
-Keep the tone modern, conversational, and easy to post across different platforms.</div>
-    <button class="copy-btn" onclick="copyPrompt('p5',this)">
-      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 10V2.5A.5.5 0 012.5 2H10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-      Copy Prompt
-    </button>
-    <p class="card-outcome">One idea. Multiple platforms. All done without starting over every single time.</p>
-
-    <button class="ex-toggle" onclick="toggleEx('ex5',this)">
-      <span class="arr">›</span> See the difference →
-    </button>
-    <div class="ex-panel" id="ex5">
-      <div class="ex-inner">
-        <div class="ex-cols">
-          <div class="ex-col">
-            <p class="ex-lbl b">Without this prompt</p>
-            <div class="ex-block before">
-              <p class="ex-text">Posted one caption on Instagram. Copy-pasted to Facebook. Tried to adjust for TikTok. Gave up. Called it done. 😩</p>
-            </div>
-          </div>
-          <div class="ex-col">
-            <p class="ex-lbl a">With this prompt</p>
-            <div class="ex-block after">
-              <p class="ex-text">→ Reel hook + script<br>→ 5-slide carousel<br>→ Facebook story post<br>→ Threads take<br>→ Email opener<br>→ 3 bonus angles<br><br>Same idea. 6 pieces. Zero starting over.</p>
-            </div>
-          </div>
+        <div class="intro-note">
+            <p><strong>Welcome!</strong> ChatGPT is incredibly powerful, but most people barely scratch the surface. These 5 prompts will completely change how you use it. Each one is designed to unlock a different capability, and together they form the foundation of effective AI interaction.</p>
         </div>
-        <p class="ex-wow">You were sitting on way more content than you thought. 🖤</p>
-      </div>
+
+        <h1 class="hero-hl">
+            You just needed better ways to talk to it.
+        </h1>
+
+        <div class="hero-card">
+            <p class="eyebrow">real talk</p>
+            <p>
+                ChatGPT wasn't the problem.<br>
+                <strong>You just needed to know how to direct it.</strong>
+                <span class="soft">Once that clicks? Everything gets easier. These 5 prompts are where that starts. 🖤</span>
+            </p>
+        </div>
+
+        <div class="scroll-hint">
+            <span>scroll to start</span>
+        </div>
+
+        <div class="prompt-list" id="prompts">
+            <h2>The 5 Essential Prompts</h2>
+
+            <div class="prompt-item">
+                <h3>1. The Clarifier</h3>
+                <p><strong>Purpose:</strong> Get ChatGPT to ask you better questions before responding.</p>
+                <p><strong>When to use:</strong> When your topic is complex or you're not sure what you're looking for.</p>
+                <div class="code-example">
+Before giving me an answer, ask me 3 clarifying questions about what I'm trying to accomplish.
+                </div>
+            </div>
+
+            <div class="prompt-item">
+                <h3>2. The Explainer</h3>
+                <p><strong>Purpose:</strong> Get detailed, educational explanations.</p>
+                <p><strong>When to use:</strong> When you want to understand something deeply.</p>
+                <div class="code-example">
+Explain this like I'm a beginner. Break it down step-by-step and use simple language.
+                </div>
+            </div>
+
+            <div class="prompt-item">
+                <h3>3. The Brainstormer</h3>
+                <p><strong>Purpose:</strong> Generate creative ideas and alternatives.</p>
+                <p><strong>When to use:</strong> When you're stuck or need fresh perspectives.</p>
+                <div class="code-example">
+Give me 5 creative alternatives for this idea. Think outside the box.
+                </div>
+            </div>
+
+            <div class="prompt-item">
+                <h3>4. The Debugger</h3>
+                <p><strong>Purpose:</strong> Fix problems systematically.</p>
+                <p><strong>When to use:</strong> When something isn't working and you need structured help.</p>
+                <div class="code-example">
+Help me debug this step-by-step. What could be the root cause?
+                </div>
+            </div>
+
+            <div class="prompt-item">
+                <h3>5. The Optimizer</h3>
+                <p><strong>Purpose:</strong> Improve and refine existing work.</p>
+                <p><strong>When to use:</strong> When you have something good and want to make it great.</p>
+                <div class="code-example">
+How can I improve this? Give me specific, actionable suggestions.
+                </div>
+            </div>
+        </div>
+
+        <div class="success-message">
+            <strong>Pro Tip:</strong> Combine these prompts for even better results. Stack them together in a conversation to go deeper.
+        </div>
     </div>
-  </div>
 
-</div><!-- /prompts-wrap -->
-
-<!-- ════════ BRIDGE ════════ -->
-<div class="bridge">
-  <div class="bridge-card">
-    <div class="bridge-emoji">💬</div>
-    <h3 class="bridge-hl">
-      It really can be<br><span class="pink">as simple as chat.</span>
-    </h3>
-    <p class="bridge-body">
-      Once you know how to direct it, ChatGPT starts feeling like<br>
-      the creative partner it was always supposed to be.
-      <strong> You just needed better questions. Now you have them. 🖤</strong>
-    </p>
-  </div>
-</div>
-
-<!-- ════════ CLOSE ════════ -->
-<section class="close-section">
-  <div class="ev-badge">✨ The Elite Vault</div>
-
-  <h2 class="close-hl">
-    You do <span class="pink">NOT</span> need<br>
-    10 NEW AI tools to create<br>
-    better content.
-  </h2>
-
-  <p class="close-body">
-    You just need better direction.<br><br>
-    The Elite Vault is where creators get stronger content, better ideas, and more personality out of the tools they already use. 👀
-  </p>
-
-  <a href="https://www.facebook.com/EliteVaultSNJ" target="_blank" rel="noopener" class="follow-btn">
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8.5 2H6.5C5.4 2 4.5 2.9 4.5 4v1.5H3v2h1.5V14h2.5V7.5H8.4l.6-2H7V4c0-.3.2-.5.5-.5H9L8.5 2z" fill="currentColor"/></svg>
-    Follow The Elite Vault
-  </a>
-</section>
-
-<!-- ════════ FOOTER ════════ -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">Simple As Chat ✨</div>
-    <p class="footer-by">By The Elite Vault · Operated by Sabrina Nichols Johnson, LLC · Educational purposes only.</p>
-    <div class="footer-links">
-      <span>© 2026 Sabrina Nichols Johnson, LLC</span>
-      <span>·</span>
-      <a href="mailto:sabrinanicholsjohnson@gmail.com">Contact</a>
-      <span>·</span>
-      <a href="https://elite-vault-tm.github.io/ev-legal/terms.html" target="_blank" rel="noopener noreferrer">Terms</a>
-      <span>·</span>
-      <a href="https://elite-vault-tm.github.io/ev-legal/disclaimer.html" target="_blank" rel="noopener noreferrer">Disclaimer</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-// ── COPY ──
-function copyPrompt(id,btn){
-  const el=document.getElementById(id);
-  const ok=()=>{
-    btn.classList.add('copied');
-    btn.innerHTML=`<svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 7.5l3 3 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>&nbsp; Copied ✓`;
-    setTimeout(()=>{
-      btn.classList.remove('copied');
-      btn.innerHTML=`<svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 10V2.5A.5.5 0 012.5 2H10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>&nbsp; Copy Prompt`;
-    },2500);
-  };
-  if(navigator.clipboard){
-    navigator.clipboard.writeText(el.innerText).then(ok).catch(()=>fb(el.innerText,ok));
-  } else { fb(el.innerText,ok); }
-}
-function fb(t,cb){
-  const ta=document.createElement('textarea');
-  ta.value=t;ta.style.cssText='position:fixed;opacity:0;top:0;left:0';
-  document.body.appendChild(ta);ta.focus();ta.select();
-  try{document.execCommand('copy');cb();}catch(e){}
-  document.body.removeChild(ta);
-}
-
-// ── EXAMPLE TOGGLE ──
-function toggleEx(id,btn){
-  const p=document.getElementById(id);
-  const open=p.classList.toggle('open');
-  btn.classList.toggle('open',open);
-  btn.innerHTML=open
-    ?`<span class="arr" style="display:inline-block;transform:rotate(90deg)">›</span> Hide example ↑`
-    :`<span class="arr">›</span> See the difference →`;
-}
-
-// ── SCROLL REVEAL ──
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
-  });
-},{threshold:0.08,rootMargin:'0px 0px -28px 0px'});
-document.querySelectorAll('[data-card]').forEach(c=>obs.observe(c));
-</script>
+    <footer>
+        <p>&copy; 2024 Simple as Chat. Master ChatGPT, one prompt at a time.</p>
+    </footer>
 </body>
 </html>
