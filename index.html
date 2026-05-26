@@ -4,47 +4,75 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Simple As Chat ✨ — 5 ChatGPT Prompts I'd Use Again Immediately</title>
-<meta name="description" content="5 ChatGPT prompts for creators who want better results from the tool they already use. No new apps. No complicated systems. Just better direction.">
+<meta name="description" content="You've been in ChatGPT this whole time. You just needed better ways to talk to it. 5 prompts that change everything.">
+
+<!-- Cabinet Grotesk + Satoshi via Fontshare -->
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@900,800,700,500&f[]=satoshi@700,500,400,300&display=swap" rel="stylesheet">
+<!-- Dancing Script for wordmark only -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
 <style>
+/* ═══════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════ */
 :root {
-  --black:      #0C0C0C;
-  --card-bg:    #151515;
-  --card-hover: #1a1a1a;
+  /* surface */
+  --base:       #0C0C0C;
+  --surface-1:  #111111;
+  --surface-2:  #161616;
+  --surface-3:  #1c1c1c;
+
+  /* brand */
   --fuchsia:    #F0197D;
-  --fuchsia-g:  rgba(240,25,125,0.15);
-  --fuchsia-d:  rgba(240,25,125,0.10);
-  --fuchsia-s:  rgba(240,25,125,0.06);
+  --fuchsia-20: rgba(240,25,125,0.20);
+  --fuchsia-10: rgba(240,25,125,0.10);
+  --fuchsia-06: rgba(240,25,125,0.06);
   --gold:       #C9A84C;
-  --gold-g:     rgba(201,168,76,0.18);
-  --white:      #FFFFFF;
-  --w80: rgba(255,255,255,0.80);
-  --w60: rgba(255,255,255,0.60);
-  --w40: rgba(255,255,255,0.40);
-  --w20: rgba(255,255,255,0.20);
-  --w10: rgba(255,255,255,0.10);
-  --w06: rgba(255,255,255,0.06);
-  --w03: rgba(255,255,255,0.03);
+  --gold-30:    rgba(201,168,76,0.30);
+  --gold-12:    rgba(201,168,76,0.12);
+  --gold-06:    rgba(201,168,76,0.06);
+
+  /* text */
+  --text-100: #FFFFFF;
+  --text-75:  rgba(255,255,255,0.75);
+  --text-45:  rgba(255,255,255,0.45);
+  --text-25:  rgba(255,255,255,0.25);
+  --text-12:  rgba(255,255,255,0.12);
+  --text-07:  rgba(255,255,255,0.07);
+
+  /* type */
+  --font-display: 'Cabinet Grotesk', sans-serif;
+  --font-body:    'Satoshi', sans-serif;
+  --font-mark:    'Dancing Script', cursive;
+
+  /* radius */
+  --r-sm:  10px;
+  --r-md:  16px;
+  --r-lg:  22px;
+  --r-xl:  28px;
 }
 
+/* ═══════════════════════════════════════
+   RESET + BASE
+═══════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
-  background:var(--black);
-  color:var(--white);
-  font-family:'DM Sans',sans-serif;
+  background:var(--base);
+  color:var(--text-100);
+  font-family:var(--font-body);
   font-size:16px;
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
 
-/* ══════════════════════════════
+/* ═══════════════════════════════════════
    HERO
-══════════════════════════════ */
+═══════════════════════════════════════ */
 .hero{
   min-height:100svh;
   display:flex;
@@ -52,199 +80,249 @@ body{
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:80px 28px 64px;
+  padding:88px 28px 72px;
   position:relative;
   overflow:hidden;
 }
 
-/* ambient glow */
-.hero::before{
-  content:'';
+/* ambient glow blob */
+.hero-blob{
   position:absolute;
-  top:-60px;left:50%;
+  top:-100px;left:50%;
   transform:translateX(-50%);
-  width:560px;height:560px;
-  background:radial-gradient(ellipse,rgba(240,25,125,0.11) 0%,transparent 65%);
+  width:640px;height:640px;
+  background:radial-gradient(ellipse,rgba(240,25,125,0.09) 0%,transparent 62%);
+  pointer-events:none;
+}
+.hero-blob-2{
+  position:absolute;
+  bottom:-80px;right:-100px;
+  width:400px;height:400px;
+  background:radial-gradient(ellipse,rgba(201,168,76,0.06) 0%,transparent 65%);
   pointer-events:none;
 }
 
-/* ── series wordmark ── */
-.series-wordmark{
-  font-family:'Dancing Script',cursive;
-  font-size:clamp(36px,10vw,58px);
+/* wordmark */
+.wordmark{
+  font-family:var(--font-mark);
+  font-size:clamp(32px,9vw,52px);
   font-weight:700;
   color:var(--gold);
   letter-spacing:0.01em;
   line-height:1.1;
-  margin-bottom:6px;
-  position:relative;
-  display:inline-block;
-  opacity:0;
-  animation:fadeUp .7s ease forwards .05s;
-  /* glow */
+  margin-bottom:4px;
   text-shadow:
-    0 0 20px rgba(201,168,76,0.55),
-    0 0 50px rgba(201,168,76,0.28),
-    0 0 90px rgba(201,168,76,0.14);
-  /* subtle shimmer pulse */
-  animation:fadeUp .7s ease forwards .05s, goldPulse 3.5s ease-in-out infinite 1s;
-}
-
-.series-wordmark .sparkle{
-  font-family:'DM Sans',sans-serif;
-  font-size:0.55em;
-  vertical-align:super;
-}
-
-/* ── main headline ── */
-.hero-hl{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(30px,8vw,50px);
-  font-weight:800;
-  line-height:1.1;
-  letter-spacing:-0.025em;
-  margin-bottom:6px;
+    0 0 24px rgba(201,168,76,0.6),
+    0 0 60px rgba(201,168,76,0.28),
+    0 0 100px rgba(201,168,76,0.12);
+  animation:fadeUp .7s ease forwards, goldPulse 3.5s ease-in-out infinite 1.2s;
   opacity:0;
-  animation:fadeUp .6s ease forwards .25s;
+}
+
+/* emotional trigger headline */
+.hero-trigger{
+  font-family:var(--font-display);
+  font-size:clamp(13px,3.5vw,15px);
+  font-weight:500;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  color:var(--text-45);
+  margin-bottom:20px;
+  opacity:0;
+  animation:fadeUp .6s ease forwards .18s;
+}
+
+.hero-hl{
+  font-family:var(--font-display);
+  font-size:clamp(36px,9.5vw,58px);
+  font-weight:900;
+  line-height:1.05;
+  letter-spacing:-0.03em;
+  margin-bottom:10px;
+  opacity:0;
+  animation:fadeUp .6s ease forwards .3s;
 }
 .hero-hl .pink{color:var(--fuchsia);}
+.hero-hl .block{display:block;}
 
 .hero-eyes{
-  font-size:clamp(24px,6vw,36px);
-  margin-bottom:22px;
+  font-size:clamp(24px,6vw,34px);
+  margin-bottom:20px;
   opacity:0;
-  animation:fadeUp .6s ease forwards .35s;
+  animation:fadeUp .6s ease forwards .4s;
 }
 
 .hero-sub{
+  font-family:var(--font-body);
   font-size:15px;
-  color:var(--w60);
-  max-width:310px;
+  font-weight:400;
+  color:var(--text-45);
+  max-width:300px;
   line-height:1.7;
-  margin-bottom:32px;
+  margin-bottom:36px;
   opacity:0;
-  animation:fadeUp .6s ease forwards .45s;
+  animation:fadeUp .6s ease forwards .5s;
 }
 
-/* ── truth card ── */
-.hero-truth{
-  background:var(--w03);
-  border:1px solid var(--w10);
-  border-left:3px solid var(--fuchsia);
-  border-radius:14px;
-  padding:20px 24px;
+/* emotional recognition card */
+.hero-card{
+  width:100%;
   max-width:340px;
+  background:var(--surface-1);
+  border:1px solid var(--text-07);
+  border-left:3px solid var(--fuchsia);
+  border-radius:var(--r-lg);
+  padding:22px 24px;
   text-align:left;
   opacity:0;
-  animation:fadeUp .6s ease forwards .58s;
+  animation:fadeUp .6s ease forwards .62s;
 }
-.hero-truth .label{
+.hero-card .eyebrow{
+  font-family:var(--font-body);
   font-size:10px;
   font-weight:700;
-  letter-spacing:.16em;
+  letter-spacing:.18em;
   text-transform:uppercase;
   color:var(--fuchsia);
   margin-bottom:10px;
 }
-.hero-truth p{
+.hero-card p{
+  font-family:var(--font-body);
   font-size:15px;
+  color:var(--text-75);
+  line-height:1.72;
   font-style:italic;
-  color:var(--w80);
-  line-height:1.7;
 }
-.hero-truth strong{
+.hero-card strong{
   font-style:normal;
-  color:var(--white);
+  color:var(--text-100);
   font-weight:600;
 }
-.hero-truth .soft{
+.hero-card .soft{
   display:block;
-  margin-top:8px;
+  margin-top:10px;
   font-size:13px;
-  color:var(--w40);
+  color:var(--text-25);
   font-style:normal;
 }
 
 /* scroll hint */
 .scroll-hint{
   position:absolute;
-  bottom:22px;left:50%;
+  bottom:24px;left:50%;
   transform:translateX(-50%);
   display:flex;flex-direction:column;align-items:center;gap:5px;
   opacity:0;
-  animation:fadeUp .6s ease forwards 1.1s;
+  animation:fadeUp .6s ease forwards 1.2s;
 }
-.scroll-hint span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--w20);}
+.scroll-hint span{
+  font-family:var(--font-body);
+  font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--text-25);
+}
 .scroll-arrow{animation:bob 2.4s ease-in-out infinite;}
 
-/* ══════════════════════════════
-   INTRO NOTE
-══════════════════════════════ */
-.intro-note{
+/* ═══════════════════════════════════════
+   INTRO
+═══════════════════════════════════════ */
+.intro{
   max-width:520px;
   margin:0 auto;
-  padding:56px 28px 12px;
+  padding:60px 28px 8px;
   text-align:center;
 }
-.intro-note p{
-  font-size:17px;
-  line-height:1.8;
-  color:var(--w60);
+.intro-hl{
+  font-family:var(--font-display);
+  font-size:clamp(20px,5vw,26px);
+  font-weight:800;
+  line-height:1.3;
+  letter-spacing:-0.02em;
+  margin-bottom:14px;
+  color:var(--text-100);
 }
-.intro-note p strong{color:var(--white);font-weight:600;}
-.intro-note .cta-nudge{
+.intro-hl .pink{color:var(--fuchsia);}
+.intro-body{
+  font-family:var(--font-body);
+  font-size:15px;
+  color:var(--text-45);
+  line-height:1.8;
+}
+.intro-body strong{color:var(--text-75);font-weight:500;}
+.intro-cta{
   display:inline-block;
-  margin-top:14px;
+  margin-top:16px;
   color:var(--fuchsia);
   font-weight:600;
   font-style:italic;
   font-size:15px;
 }
 
-/* ══════════════════════════════
+/* ═══════════════════════════════════════
+   VAULT DIVIDER
+═══════════════════════════════════════ */
+.vault-divider{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  max-width:520px;
+  margin:44px auto 0;
+  padding:0 20px;
+}
+.vault-divider .line{
+  flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-30),transparent);
+}
+.vault-divider .label{
+  font-family:var(--font-body);
+  font-size:10px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);
+  white-space:nowrap;
+}
+
+/* ═══════════════════════════════════════
    PROMPTS WRAPPER
-══════════════════════════════ */
+═══════════════════════════════════════ */
 .prompts-wrap{
   max-width:560px;
   margin:0 auto;
-  padding:28px 20px 24px;
+  padding:32px 20px 28px;
 }
 
-/* ══════════════════════════════
+/* ═══════════════════════════════════════
    COMMENTARY
-══════════════════════════════ */
+═══════════════════════════════════════ */
 .commentary{
   display:flex;
   align-items:flex-start;
   gap:10px;
-  padding:18px 6px 6px;
+  padding:20px 6px 6px;
+  font-family:var(--font-body);
   font-size:14px;
-  color:var(--w40);
+  font-weight:400;
+  color:var(--text-45);
   font-style:italic;
   line-height:1.55;
 }
 .commentary .pip{
-  width:5px;height:5px;
-  border-radius:50%;
-  background:var(--fuchsia);
-  opacity:.55;
-  flex-shrink:0;
-  margin-top:7px;
+  width:5px;height:5px;border-radius:50%;
+  background:var(--fuchsia);opacity:.5;
+  flex-shrink:0;margin-top:7px;
 }
 
-/* ══════════════════════════════
-   PROMPT CARD
-══════════════════════════════ */
+/* ═══════════════════════════════════════
+   PROMPT CARD — BASE
+═══════════════════════════════════════ */
 .prompt-card{
-  background:var(--card-bg);
-  border:1px solid var(--w06);
-  border-radius:22px;
-  padding:28px 24px 22px;
-  margin-bottom:14px;
+  background:var(--surface-2);
+  border:1px solid var(--text-07);
+  border-radius:var(--r-xl);
+  padding:30px 26px 24px;
+  margin-bottom:16px;
   position:relative;
   overflow:hidden;
   opacity:0;
-  transform:translateY(22px);
+  transform:translateY(24px);
   transition:
     opacity .5s ease,
     transform .5s ease,
@@ -254,387 +332,412 @@ body{
 }
 .prompt-card.visible{opacity:1;transform:translateY(0);}
 
-/* top-edge glow line */
+/* top shimmer line */
 .prompt-card::before{
   content:'';
   position:absolute;
-  top:0;left:10%;right:10%;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(240,25,125,.35),transparent);
-  opacity:0;
-  transition:opacity .3s;
+  top:0;left:15%;right:15%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(240,25,125,.3),transparent);
+  opacity:0;transition:opacity .3s;
 }
 .prompt-card:hover{
-  border-color:rgba(240,25,125,.28);
-  box-shadow:0 6px 36px var(--fuchsia-g);
-  background:var(--card-hover);
+  border-color:rgba(240,25,125,.22);
+  box-shadow:0 8px 48px rgba(240,25,125,.1);
+  background:var(--surface-3);
 }
 .prompt-card:hover::before{opacity:1;}
 
-/* featured variant */
+/* ── FEATURED CARD ── */
 .prompt-card.feat{
-  border-color:rgba(240,25,125,.18);
-  background:linear-gradient(155deg,#180f16 0%,#151515 100%);
+  background:linear-gradient(150deg,#1a0e16 0%,#161616 55%,#161616 100%);
+  border-color:rgba(240,25,125,.22);
+}
+.prompt-card.feat::before{opacity:.6;}
+
+/* gold top accent for featured */
+.prompt-card.feat::after{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold-30),transparent);
 }
 
-/* ── card anatomy ── */
+/* ── CARD ANATOMY ── */
 .card-eye{
   display:flex;align-items:center;gap:8px;
-  margin-bottom:10px;
-}
-.card-num{
-  font-size:10px;font-weight:700;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:var(--fuchsia);
-}
-.card-badge{
-  font-size:10px;font-weight:600;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--gold);
-  background:rgba(201,168,76,.12);
-  border:1px solid rgba(201,168,76,.22);
-  padding:2px 9px;border-radius:100px;
+  margin-bottom:12px;
 }
 
-.card-title{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(19px,5vw,23px);
-  font-weight:800;
-  line-height:1.2;
-  letter-spacing:-.015em;
-  color:var(--white);
-  margin-bottom:7px;
+/* vault number — GOLD, display font */
+.card-num{
+  font-family:var(--font-display);
+  font-size:11px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);
 }
+
+.card-badge{
+  font-family:var(--font-body);
+  font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--fuchsia);
+  background:var(--fuchsia-10);
+  border:1px solid var(--fuchsia-20);
+  padding:3px 10px;border-radius:100px;
+}
+
+/* TITLE — biggest, boldest, Cabinet Black */
+.card-title{
+  font-family:var(--font-display);
+  font-size:clamp(22px,6vw,28px);
+  font-weight:900;
+  line-height:1.1;
+  letter-spacing:-0.025em;
+  color:var(--text-100);
+  margin-bottom:8px;
+}
+
+/* DESCRIPTOR — Satoshi, whisper weight */
 .card-desc{
+  font-family:var(--font-body);
   font-size:14px;
-  color:var(--w40);
+  font-weight:300;
+  color:var(--text-45);
   font-style:italic;
   line-height:1.55;
-  margin-bottom:20px;
+  margin-bottom:22px;
 }
-.card-rule{height:1px;background:var(--w06);margin-bottom:20px;}
 
-/* prompt body */
+.card-rule{
+  height:1px;
+  background:var(--text-07);
+  margin-bottom:22px;
+}
+
+/* PROMPT BODY — Satoshi Regular */
 .prompt-body{
+  font-family:var(--font-body);
   font-size:14px;
-  line-height:1.82;
-  color:var(--w80);
+  font-weight:400;
+  line-height:1.85;
+  color:var(--text-75);
   white-space:pre-wrap;
   word-break:break-word;
 }
+
+/* PLACEHOLDERS — fuchsia, punchy */
 .ph{
   color:var(--fuchsia);
-  font-weight:600;
-  background:var(--fuchsia-d);
-  padding:1px 6px;
-  border-radius:5px;
+  font-weight:700;
+  background:var(--fuchsia-06);
+  padding:2px 7px;
+  border-radius:6px;
+  font-style:normal;
 }
 
-/* copy button */
+/* COPY BUTTON */
 .copy-btn{
   display:flex;align-items:center;justify-content:center;gap:8px;
   width:100%;
-  margin-top:20px;
-  padding:15px 20px;
-  background:transparent;
-  border:1.5px solid var(--fuchsia);
-  border-radius:13px;
-  color:var(--fuchsia);
-  font-family:'DM Sans',sans-serif;
-  font-size:14px;font-weight:600;
-  letter-spacing:.02em;
+  margin-top:22px;
+  padding:16px 20px;
+  background:var(--fuchsia);
+  border:none;
+  border-radius:var(--r-md);
+  color:var(--text-100);
+  font-family:var(--font-body);
+  font-size:14px;font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
   cursor:pointer;
-  min-height:50px;
-  transition:background .22s,color .22s,transform .15s;
+  min-height:52px;
+  transition:opacity .2s,transform .15s,box-shadow .2s;
   -webkit-tap-highlight-color:transparent;
+  box-shadow:0 4px 24px rgba(240,25,125,.3);
 }
-.copy-btn:hover{background:var(--fuchsia);color:var(--white);}
+.copy-btn:hover{opacity:.88;transform:translateY(-1px);box-shadow:0 8px 32px rgba(240,25,125,.38);}
 .copy-btn:active{transform:scale(.98);}
-.copy-btn.copied{background:var(--fuchsia);color:var(--white);}
+.copy-btn.copied{
+  background:linear-gradient(135deg,#1a1a1a,#222);
+  color:var(--fuchsia);
+  box-shadow:none;
+  border:1.5px solid var(--fuchsia-20);
+}
 
+/* OUTCOME LINE */
 .card-outcome{
-  margin-top:12px;
+  margin-top:14px;
+  font-family:var(--font-body);
   font-size:12.5px;
-  color:var(--w40);
+  font-weight:300;
+  color:var(--text-25);
   font-style:italic;
   text-align:center;
   line-height:1.55;
 }
 
-/* ══════════════════════════════
+/* ═══════════════════════════════════════
    SEE EXAMPLE
-══════════════════════════════ */
+═══════════════════════════════════════ */
 .ex-toggle{
   display:inline-flex;align-items:center;gap:7px;
   margin-top:18px;
   background:none;border:none;
-  color:var(--w40);
-  font-family:'DM Sans',sans-serif;
+  color:var(--text-45);
+  font-family:var(--font-body);
   font-size:13px;font-weight:500;
   cursor:pointer;padding:0;
   transition:color .2s;
   -webkit-tap-highlight-color:transparent;
 }
 .ex-toggle:hover{color:var(--fuchsia);}
-.ex-toggle .arr{
-  display:inline-block;
-  transition:transform .3s ease;
-  font-size:15px;line-height:1;
-}
+.ex-toggle .arr{display:inline-block;transition:transform .3s ease;font-size:16px;line-height:1;}
 .ex-toggle.open .arr{transform:rotate(90deg);}
 
-.ex-panel{max-height:0;overflow:hidden;transition:max-height .42s cubic-bezier(.4,0,.2,1);}
-.ex-panel.open{max-height:800px;}
+.ex-panel{max-height:0;overflow:hidden;transition:max-height .44s cubic-bezier(.4,0,.2,1);}
+.ex-panel.open{max-height:900px;}
 
 .ex-inner{
-  margin-top:20px;
-  border-top:1px solid var(--w06);
-  padding-top:20px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
+  margin-top:22px;
+  border-top:1px solid var(--text-07);
+  padding-top:22px;
+  display:flex;flex-direction:column;gap:14px;
 }
 
 .ex-cols{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:10px;
+  gap:12px;
 }
-@media(max-width:400px){.ex-cols{grid-template-columns:1fr;}}
+@media(max-width:420px){.ex-cols{grid-template-columns:1fr;}}
 
-.ex-col{display:flex;flex-direction:column;gap:6px;}
+.ex-col{display:flex;flex-direction:column;gap:7px;}
 
 .ex-lbl{
+  font-family:var(--font-body);
   font-size:10px;font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;
-  padding:0 2px;
+  letter-spacing:.16em;text-transform:uppercase;
 }
-.ex-lbl.b{color:var(--w20);}
+.ex-lbl.b{color:var(--text-25);}
 .ex-lbl.a{color:var(--fuchsia);}
 
 .ex-block{
-  background:var(--w03);
-  border-radius:12px;
-  padding:14px;
+  border-radius:var(--r-sm);
+  padding:14px 16px;
   flex:1;
 }
-.ex-block.before{border:1px solid var(--w06);}
+.ex-block.before{
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--text-07);
+}
 .ex-block.after{
-  border:1px solid rgba(240,25,125,.18);
-  background:var(--fuchsia-s);
+  background:var(--fuchsia-06);
+  border:1px solid var(--fuchsia-20);
 }
 
-.ex-text{font-size:13px;line-height:1.65;color:var(--w60);}
-.ex-block.before .ex-text{color:var(--w30, rgba(255,255,255,.3));}
+.ex-text{
+  font-family:var(--font-body);
+  font-size:13px;font-weight:400;
+  line-height:1.65;color:var(--text-75);
+}
+.ex-block.before .ex-text{color:var(--text-25);}
 
 .ex-wow{
-  font-size:13px;
-  color:var(--fuchsia);
+  font-family:var(--font-body);
+  font-size:13px;font-weight:600;
   font-style:italic;
-  font-weight:500;
+  color:var(--fuchsia);
   text-align:center;
   padding:12px 16px;
-  background:var(--fuchsia-d);
-  border-radius:10px;
+  background:var(--fuchsia-06);
+  border:1px solid var(--fuchsia-20);
+  border-radius:var(--r-sm);
   line-height:1.5;
 }
 
-/* ══════════════════════════════
+/* ═══════════════════════════════════════
    BRIDGE
-══════════════════════════════ */
+═══════════════════════════════════════ */
 .bridge{
   max-width:520px;
-  margin:32px auto 0;
-  padding:36px 28px;
-  text-align:center;
+  margin:36px auto 0;
+  padding:0 28px;
 }
 .bridge-card{
-  background:var(--w03);
-  border:1px solid var(--w06);
-  border-radius:20px;
-  padding:28px 24px;
+  background:var(--surface-1);
+  border:1px solid var(--text-07);
+  border-top:2px solid var(--gold-30);
+  border-radius:var(--r-xl);
+  padding:32px 28px;
+  text-align:center;
 }
-.bridge-emoji{font-size:26px;margin-bottom:14px;}
-.bridge-text{font-size:16px;line-height:1.8;color:var(--w60);}
-.bridge-text strong{
-  color:var(--white);
-  font-weight:600;
-  display:block;
-  margin-top:10px;
-  font-size:17px;
+.bridge-emoji{font-size:28px;margin-bottom:16px;}
+.bridge-hl{
+  font-family:var(--font-display);
+  font-size:clamp(18px,5vw,22px);
+  font-weight:800;
+  line-height:1.3;
+  letter-spacing:-0.02em;
+  color:var(--text-100);
+  margin-bottom:12px;
 }
+.bridge-hl .pink{color:var(--fuchsia);}
+.bridge-body{
+  font-family:var(--font-body);
+  font-size:15px;
+  color:var(--text-45);
+  line-height:1.8;
+}
+.bridge-body strong{color:var(--text-75);font-weight:500;}
 
-/* ══════════════════════════════
+/* ═══════════════════════════════════════
    CLOSE / CTA
-══════════════════════════════ */
+═══════════════════════════════════════ */
 .close-section{
   max-width:520px;
   margin:0 auto;
-  padding:56px 28px 80px;
+  padding:64px 28px 48px;
   text-align:center;
-  border-top:1px solid var(--w06);
+  border-top:1px solid var(--text-07);
+  margin-top:60px;
 }
 
 .ev-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  background:var(--gold-g);
-  border:1px solid rgba(201,168,76,.22);
+  display:inline-flex;align-items:center;gap:7px;
+  background:var(--gold-06);
+  border:1px solid var(--gold-12);
   border-radius:100px;
-  padding:6px 14px;
+  padding:7px 16px;
+  font-family:var(--font-body);
   font-size:11px;font-weight:700;
-  letter-spacing:.18em;text-transform:uppercase;
+  letter-spacing:.2em;text-transform:uppercase;
   color:var(--gold);
-  margin-bottom:26px;
+  margin-bottom:28px;
 }
 
 .close-hl{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(22px,6vw,30px);
-  font-weight:800;
-  line-height:1.25;
-  letter-spacing:-.02em;
-  margin-bottom:16px;
+  font-family:var(--font-display);
+  font-size:clamp(26px,7vw,36px);
+  font-weight:900;
+  line-height:1.15;
+  letter-spacing:-0.025em;
+  margin-bottom:18px;
 }
 .close-hl .pink{color:var(--fuchsia);}
 
 .close-body{
+  font-family:var(--font-body);
   font-size:15px;
-  color:var(--w60);
-  line-height:1.75;
-  max-width:310px;
-  margin:0 auto 32px;
+  color:var(--text-45);
+  line-height:1.8;
+  max-width:300px;
+  margin:0 auto 36px;
 }
 
 .follow-btn{
   display:inline-flex;align-items:center;gap:10px;
-  padding:17px 30px;
+  padding:18px 32px;
   background:var(--fuchsia);
-  color:var(--white);
-  font-family:'DM Sans',sans-serif;
-  font-size:15px;font-weight:600;
-  border-radius:15px;
+  color:var(--text-100);
+  font-family:var(--font-body);
+  font-size:15px;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;
+  border-radius:var(--r-md);
   text-decoration:none;
-  letter-spacing:.02em;
-  transition:opacity .2s,transform .2s;
+  box-shadow:0 4px 28px rgba(240,25,125,.32);
+  transition:opacity .2s,transform .2s,box-shadow .2s;
   -webkit-tap-highlight-color:transparent;
 }
-.follow-btn:hover{opacity:.88;transform:translateY(-2px);}
+.follow-btn:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 36px rgba(240,25,125,.4);}
 
-/* footer */
-.page-footer{
-  margin-top:40px;
-  padding-top:24px;
-  border-top:1px solid var(--w06);
-}
-.footer-text{
-  font-size:13px;
-  color:var(--w40);
-  line-height:1.75;
-}
-.footer-text strong{color:var(--w60);font-weight:500;}
-
-/* ══════════════════════════════
+/* ═══════════════════════════════════════
    SITE FOOTER
-══════════════════════════════ */
+═══════════════════════════════════════ */
 .site-footer{
-  border-top:1px solid var(--w06);
-  padding:32px 28px 40px;
+  border-top:1px solid var(--text-07);
+  padding:32px 28px 44px;
 }
 .footer-inner{
   max-width:520px;
   margin:0 auto;
   text-align:center;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
+  display:flex;flex-direction:column;gap:10px;
 }
 .footer-brand{
-  font-family:'Dancing Script',cursive;
-  font-size:20px;
-  color:var(--gold);
-  text-shadow:0 0 14px rgba(201,168,76,0.4);
+  font-family:var(--font-mark);
+  font-size:20px;color:var(--gold);
+  text-shadow:0 0 14px rgba(201,168,76,.4);
 }
 .footer-by{
-  font-size:12px;
-  color:var(--w40);
-  line-height:1.6;
+  font-family:var(--font-body);
+  font-size:12px;color:var(--text-25);line-height:1.65;
 }
 .footer-links{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items:center;
-  gap:6px 8px;
-  font-size:12px;
-  color:var(--w20);
+  display:flex;flex-wrap:wrap;
+  justify-content:center;align-items:center;
+  gap:6px 10px;
+  font-family:var(--font-body);
+  font-size:12px;color:var(--text-25);
 }
-.footer-links a{
-  color:var(--w40);
-  text-decoration:none;
-  transition:color .2s;
-}
+.footer-links a{color:var(--text-45);text-decoration:none;transition:color .2s;}
 .footer-links a:hover{color:var(--fuchsia);}
 
-/* ══════════════════════════════
-   KEYFRAMES
-══════════════════════════════ */
+/* ═══════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════ */
 @keyframes fadeUp{
-  from{opacity:0;transform:translateY(18px);}
+  from{opacity:0;transform:translateY(20px);}
   to{opacity:1;transform:translateY(0);}
 }
 @keyframes bob{
   0%,100%{transform:translateY(0);}
-  50%{transform:translateY(6px);}
+  50%{transform:translateY(7px);}
 }
 @keyframes goldPulse{
-  0%,100%{
-    text-shadow:
-      0 0 20px rgba(201,168,76,0.55),
-      0 0 50px rgba(201,168,76,0.28),
-      0 0 90px rgba(201,168,76,0.14);
-  }
-  50%{
-    text-shadow:
-      0 0 30px rgba(201,168,76,0.80),
-      0 0 70px rgba(201,168,76,0.45),
-      0 0 120px rgba(201,168,76,0.22);
-  }
+  0%,100%{text-shadow:0 0 24px rgba(201,168,76,.6),0 0 60px rgba(201,168,76,.28),0 0 100px rgba(201,168,76,.12);}
+  50%{text-shadow:0 0 36px rgba(201,168,76,.85),0 0 80px rgba(201,168,76,.45),0 0 140px rgba(201,168,76,.2);}
 }
 
-/* ══════════════════════════════
+/* ═══════════════════════════════════════
    RESPONSIVE
-══════════════════════════════ */
+═══════════════════════════════════════ */
 @media(max-width:400px){
-  .hero{padding:68px 20px 52px;}
-  .prompts-wrap{padding:20px 16px;}
-  .prompt-card{padding:22px 18px 18px;}
+  .hero{padding:72px 20px 60px;}
+  .prompts-wrap{padding:24px 16px;}
+  .prompt-card{padding:24px 18px 20px;}
+  .bridge{padding:0 20px;}
+  .close-section{padding:52px 20px 40px;}
 }
 </style>
 </head>
 <body>
 
-<!-- ════════════ HERO ════════════ -->
+<!-- ════════ HERO ════════ -->
 <section class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob-2"></div>
 
-  <div class="series-wordmark">It's as Simple as Chat...</div>
+  <div class="wordmark">It's as Simple as Chat...</div>
+
+  <p class="hero-trigger">why does ChatGPT work for everyone but me? 😭</p>
 
   <h1 class="hero-hl">
-    5 ChatGPT Prompts<br>
-    I'd Use Again<br>
-    <span class="pink">Immediately</span>
+    <span class="block">5 Prompts That</span>
+    <span class="block pink">Finally Make It</span>
+    <span class="block">Click 👀</span>
   </h1>
-  <p class="hero-eyes">👀</p>
 
   <p class="hero-sub">
-    For creators who wanna stay inside ChatGPT<br>
-    and still get <em>way</em> better results.
+    You've been in ChatGPT this whole time.<br>
+    You just needed better ways to talk to it.
   </p>
 
-  <div class="hero-truth">
-    <p class="label">real talk</p>
+  <div class="hero-card">
+    <p class="eyebrow">real talk</p>
     <p>
-      Why does ChatGPT work for everybody else…<br>
-      <strong>but when I use it,</strong>
-      <span class="soft">the results SUCK?” 👀</span>
+      ChatGPT wasn't the problem.<br>
+      <strong>You just needed to know how to direct it.</strong>
+      <span class="soft">Once that clicks? Everything gets easier. These 5 prompts are where that starts. 🖤</span>
     </p>
   </div>
 
@@ -646,26 +749,32 @@ body{
   </div>
 </section>
 
-<!-- ════════════ INTRO ════════════ -->
-<div class="intro-note">
-  <p>
-    Some of y’all are asking ChatGPT:
-“write me a caption”<br>
-    …then wondering why the results feel off. 😮‍💨<br>
-    <strong>You just need to give it clearer prompts.</strong><br><br>
-    These 5 prompts are exactly how you do that.
-    <span class="cta-nudge">These prompts will show you exactly what people mean when they say:
-“AI changed the game for my content.” 👇</span>
+<!-- ════════ INTRO ════════ -->
+<div class="intro">
+  <h2 class="intro-hl">
+    You don't need a new tool.<br>You need <span class="pink">better direction.</span>
+  </h2>
+  <p class="intro-body">
+    These 5 prompts work inside ChatGPT — the tool you're already in.<br>
+    <strong>Copy one. Try it right now. Feel the difference.</strong>
+    <span class="intro-cta">That's literally all this is. 👇</span>
   </p>
 </div>
 
-<!-- ════════════ PROMPTS ════════════ -->
+<!-- vault divider -->
+<div class="vault-divider">
+  <div class="line"></div>
+  <span class="label">✦ The Vault ✦</span>
+  <div class="line"></div>
+</div>
+
+<!-- ════════ PROMPTS ════════ -->
 <div class="prompts-wrap">
 
   <!-- ── CARD 1 ── -->
   <div class="prompt-card" data-card>
     <div class="card-eye">
-      <span class="card-num">Prompt 01</span>
+      <span class="card-num">Vault 01</span>
       <span class="card-badge">Start here</span>
     </div>
     <h2 class="card-title">Who Are You Talking To?</h2>
@@ -673,14 +782,14 @@ body{
     <div class="card-rule"></div>
     <div class="prompt-body" id="p1">Help me figure out who my content is really meant for based on my <span class="ph">[brand, niche, business, content style, or goals]</span>.
 
-I want to better understand the type of people most likely to connect with my content, trust my message, engage with my page, and follow what I create.
+I want to understand the type of people most likely to connect with my content, trust my message, engage with my page, and follow what I create.
 
 Include:
 • The type of audience this brand or content naturally attracts
 • Their mindset, interests, habits, and online behavior
 • What they are probably struggling with right now
 • The kind of content they would stop scrolling for
-• What type of wording, tone, or messaging connects with them most
+• What wording, tone, or messaging connects with them most
 • What could make them trust or relate to this brand faster
 • Content ideas designed specifically for this audience
 
@@ -699,7 +808,7 @@ Keep everything realistic, modern, and focused on real social media behavior.</d
 
   <!-- ── CARD 2 ── -->
   <div class="prompt-card" data-card>
-    <div class="card-eye"><span class="card-num">Prompt 02</span></div>
+    <div class="card-eye"><span class="card-num">Vault 02</span></div>
     <h2 class="card-title">Make It Look Like You</h2>
     <p class="card-desc">Your content should feel recognizable the moment people see it.</p>
     <div class="card-rule"></div>
@@ -729,10 +838,10 @@ Make the final result feel intentional, modern, and easy to maintain across soci
     Okay NOW we're getting somewhere. This one changes how your whole page FEELS to people. 👀
   </div>
 
-  <!-- ── CARD 3 — fan favorite ── -->
+  <!-- ── CARD 3 — FEATURED ── -->
   <div class="prompt-card feat" data-card>
     <div class="card-eye">
-      <span class="card-num">Prompt 03</span>
+      <span class="card-num">Vault 03</span>
       <span class="card-badge">Fan favorite</span>
     </div>
     <h2 class="card-title">Say It Better</h2>
@@ -740,11 +849,11 @@ Make the final result feel intentional, modern, and easy to maintain across soci
     <div class="card-rule"></div>
     <div class="prompt-body" id="p3">Rewrite this content: <span class="ph">[paste content here]</span> so it sounds more natural, conversational, and easier to connect with online.
 
-I want the final version to feel human, clear, engaging, and true to my personality — instead of sounding overly robotic, corporate, or forced.
+I want the final version to feel human, clear, engaging, and true to my personality — instead of sounding robotic, corporate, or forced.
 
 Include:
 • A cleaner, smoother rewrite of the original content
-• Stronger wording where the message feels weak or unclear
+• Stronger wording where the message feels weak
 • Better flow and pacing throughout
 • Ways to make the content easier to read on social media
 • Stronger hooks, transitions, or ending lines if needed
@@ -767,7 +876,7 @@ Keep the tone warm, conversational, confident, and easy to understand.</div>
           <div class="ex-col">
             <p class="ex-lbl b">What most people type</p>
             <div class="ex-block before">
-              <p class="ex-text">"I am a content creator who specializes in providing high-quality content for social media platforms. I offer services that help businesses grow their online presence and increase engagement."</p>
+              <p class="ex-text">"I am a content creator who specializes in providing high-quality content for social media platforms to help businesses grow their online presence."</p>
             </div>
           </div>
           <div class="ex-col">
@@ -784,12 +893,12 @@ Keep the tone warm, conversational, confident, and easy to understand.</div>
 
   <div class="commentary">
     <span class="pip"></span>
-    This one right here? Whew. 👀 This is the prompt that saves people HOURS of staring at a blank screen honestly.
+    This one right here? Whew. 👀 This is the one that saves people HOURS of staring at a blank screen honestly.
   </div>
 
   <!-- ── CARD 4 ── -->
   <div class="prompt-card" data-card>
-    <div class="card-eye"><span class="card-num">Prompt 04</span></div>
+    <div class="card-eye"><span class="card-num">Vault 04</span></div>
     <h2 class="card-title">Plan Your Next Video</h2>
     <p class="card-desc">Stop staring at a blank screen. This prompt builds the whole plan.</p>
     <div class="card-rule"></div>
@@ -817,13 +926,13 @@ Keep everything conversational and easy to film without a big production setup.<
 
   <div class="commentary">
     <span class="pip"></span>
-    Okay last one. And honestly? This might be the one people come back to the most. 👇
+    Last one. And honestly? This might be the one people come back to the most. 👇
   </div>
 
-  <!-- ── CARD 5 — game changer ── -->
+  <!-- ── CARD 5 — FEATURED ── -->
   <div class="prompt-card feat" data-card>
     <div class="card-eye">
-      <span class="card-num">Prompt 05</span>
+      <span class="card-num">Vault 05</span>
       <span class="card-badge">Game changer</span>
     </div>
     <h2 class="card-title">One Idea Should Never Just Be One Post</h2>
@@ -839,7 +948,7 @@ Include:
 • A Facebook post version
 • An Instagram caption version
 • A Threads or Twitter/X version
-• Additional short-form content ideas pulled from the main topic
+• Additional short-form content ideas from the main topic
 • CTA ideas that match each platform naturally
 • Suggestions for visuals or content style for each version
 
@@ -865,7 +974,7 @@ Keep the tone modern, conversational, and easy to post across different platform
           <div class="ex-col">
             <p class="ex-lbl a">With this prompt</p>
             <div class="ex-block after">
-              <p class="ex-text">→ Reel hook + script<br>→ 5-slide carousel<br>→ Facebook story post<br>→ Threads take<br>→ Email opener<br>→ 3 bonus content angles<br><br>Same idea. 6 pieces. Zero starting over.</p>
+              <p class="ex-text">→ Reel hook + script<br>→ 5-slide carousel<br>→ Facebook story post<br>→ Threads take<br>→ Email opener<br>→ 3 bonus angles<br><br>Same idea. 6 pieces. Zero starting over.</p>
             </div>
           </div>
         </div>
@@ -876,21 +985,23 @@ Keep the tone modern, conversational, and easy to post across different platform
 
 </div><!-- /prompts-wrap -->
 
-<!-- ════════════ BRIDGE ════════════ -->
+<!-- ════════ BRIDGE ════════ -->
 <div class="bridge">
   <div class="bridge-card">
     <div class="bridge-emoji">💬</div>
-    <p class="bridge-text">
-      It really can be as simple as Chat.<br>
-      ChatGPT didn't stop working. 😭
-      <strong>You just needed to adapt with the updates. 👀🖤</strong>
+    <h3 class="bridge-hl">
+      It really can be<br><span class="pink">as simple as chat.</span>
+    </h3>
+    <p class="bridge-body">
+      Once you know how to direct it, ChatGPT starts feeling like<br>
+      the creative partner it was always supposed to be.
+      <strong> You just needed better questions. Now you have them. 🖤</strong>
     </p>
   </div>
 </div>
 
-<!-- ════════════ CLOSE ════════════ -->
+<!-- ════════ CLOSE ════════ -->
 <section class="close-section">
-
   <div class="ev-badge">✨ The Elite Vault</div>
 
   <h2 class="close-hl">
@@ -900,57 +1011,53 @@ Keep the tone modern, conversational, and easy to post across different platform
   </h2>
 
   <p class="close-body">
-    You just need to learn how to use the ones you have better.<br><br>
-    The Elite Vault is where creators come to get stronger content, better ideas, and more personality out of the tools they already use. 👀
+    You just need better direction.<br><br>
+    The Elite Vault is where creators get stronger content, better ideas, and more personality out of the tools they already use. 👀
   </p>
 
   <a href="https://www.facebook.com/EliteVaultSNJ" target="_blank" rel="noopener" class="follow-btn">
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8.5 2H6.5C5.4 2 4.5 2.9 4.5 4v1.5H3v2h1.5V14h2.5V7.5H8.4l.6-2H7V4c0-.3.2-.5.5-.5H9L8.5 2z" fill="currentColor"/></svg>
     Follow The Elite Vault
   </a>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">Simple As Chat ✨</div>
-      <p class="footer-by">By The Elite Vault · Operated by Sabrina Nichols Johnson, LLC · Educational purposes only.</p>
-      <div class="footer-links">
-        <span>© 2026 Sabrina Nichols Johnson, LLC</span>
-        <span>·</span>
-        <a href="mailto:sabrinanicholsjohnson@gmail.com">Contact</a>
-        <span>·</span>
-        <a href="https://elite-vault-tm.github.io/ev-legal/terms.html" target="_blank" rel="noopener noreferrer">Terms</a>
-        <span>·</span>
-        <a href="https://elite-vault-tm.github.io/ev-legal/disclaimer.html" target="_blank" rel="noopener noreferrer">Disclaimer</a>
-      </div>
-    </div>
-  </footer>
-
 </section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Simple As Chat ✨</div>
+    <p class="footer-by">By The Elite Vault · Operated by Sabrina Nichols Johnson, LLC · Educational purposes only.</p>
+    <div class="footer-links">
+      <span>© 2026 Sabrina Nichols Johnson, LLC</span>
+      <span>·</span>
+      <a href="mailto:sabrinanicholsjohnson@gmail.com">Contact</a>
+      <span>·</span>
+      <a href="https://elite-vault-tm.github.io/ev-legal/terms.html" target="_blank" rel="noopener noreferrer">Terms</a>
+      <span>·</span>
+      <a href="https://elite-vault-tm.github.io/ev-legal/disclaimer.html" target="_blank" rel="noopener noreferrer">Disclaimer</a>
+    </div>
+  </div>
+</footer>
 
 <script>
 // ── COPY ──
 function copyPrompt(id,btn){
   const el=document.getElementById(id);
-  const raw=el.innerText;
   const ok=()=>{
     btn.classList.add('copied');
-    btn.innerHTML=`<svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 7.5l3 3 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Copied ✓`;
+    btn.innerHTML=`<svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 7.5l3 3 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>&nbsp; Copied ✓`;
     setTimeout(()=>{
       btn.classList.remove('copied');
-      btn.innerHTML=`<svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 10V2.5A.5.5 0 012.5 2H10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg> Copy Prompt`;
+      btn.innerHTML=`<svg width="15" height="15" viewBox="0 0 15 15" fill="none"><rect x="4" y="4" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 10V2.5A.5.5 0 012.5 2H10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>&nbsp; Copy Prompt`;
     },2500);
   };
   if(navigator.clipboard){
-    navigator.clipboard.writeText(raw).then(ok).catch(()=>fb(raw,ok));
-  } else { fb(raw,ok); }
+    navigator.clipboard.writeText(el.innerText).then(ok).catch(()=>fb(el.innerText,ok));
+  } else { fb(el.innerText,ok); }
 }
 function fb(t,cb){
   const ta=document.createElement('textarea');
-  ta.value=t;
-  ta.style.cssText='position:fixed;opacity:0;top:0;left:0';
-  document.body.appendChild(ta);
-  ta.focus();ta.select();
+  ta.value=t;ta.style.cssText='position:fixed;opacity:0;top:0;left:0';
+  document.body.appendChild(ta);ta.focus();ta.select();
   try{document.execCommand('copy');cb();}catch(e){}
   document.body.removeChild(ta);
 }
@@ -968,10 +1075,7 @@ function toggleEx(id,btn){
 // ── SCROLL REVEAL ──
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('visible');
-      obs.unobserve(e.target);
-    }
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
   });
 },{threshold:0.08,rootMargin:'0px 0px -28px 0px'});
 document.querySelectorAll('[data-card]').forEach(c=>obs.observe(c));
