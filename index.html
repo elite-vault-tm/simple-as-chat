@@ -6,26 +6,18 @@
 <title>Simple As Chat ✨ — 5 ChatGPT Prompts I'd Use Immediately</title>
 <meta name="description" content="You've been in ChatGPT this whole time. You just needed better ways to talk to it. 5 prompts that change everything.">
 
-<!-- Cabinet Grotesk + Satoshi via Fontshare -->
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@900,800,700,500&f[]=satoshi@700,500,400,300&display=swap" rel="stylesheet">
-<!-- Dancing Script for wordmark only -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
 <style>
-/* ═══════════════════════════════════════
-   TOKENS
-═══════════════════════════════════════ */
 :root {
-  /* surface */
   --base:       #0C0C0C;
   --surface-1:  #111111;
   --surface-2:  #161616;
   --surface-3:  #1c1c1c;
-
-  /* brand */
   --fuchsia:    #F0197D;
   --fuchsia-20: rgba(240,25,125,0.20);
   --fuchsia-10: rgba(240,25,125,0.10);
@@ -34,45 +26,34 @@
   --gold-30:    rgba(201,168,76,0.30);
   --gold-12:    rgba(201,168,76,0.12);
   --gold-06:    rgba(201,168,76,0.06);
-
-  /* text */
   --text-100: #FFFFFF;
   --text-75:  rgba(255,255,255,0.75);
   --text-45:  rgba(255,255,255,0.45);
   --text-25:  rgba(255,255,255,0.25);
   --text-12:  rgba(255,255,255,0.12);
   --text-07:  rgba(255,255,255,0.07);
-
-  /* type */
   --font-display: 'Cabinet Grotesk', sans-serif;
   --font-body:    'Satoshi', sans-serif;
   --font-mark:    'Dancing Script', cursive;
-
-  /* radius */
   --r-sm:  10px;
   --r-md:  16px;
   --r-lg:  22px;
   --r-xl:  28px;
 }
 
-/* ═══════════════════════════════════════
-   RESET + BASE
-═══════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
   background:var(--base);
   color:var(--text-100);
   font-family:var(--font-body);
-  font-size:16px;
-  line-height:1.6;
+  font-size:17px; /* bumped from 16px */
+  line-height:1.65;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
 
-/* ═══════════════════════════════════════
-   HERO
-═══════════════════════════════════════ */
+/* ═══ HERO ═══ */
 .hero{
   min-height:100svh;
   display:flex;
@@ -84,28 +65,22 @@ body{
   position:relative;
   overflow:hidden;
 }
-
-/* ambient glow blob */
 .hero-blob{
-  position:absolute;
-  top:-100px;left:50%;
+  position:absolute;top:-100px;left:50%;
   transform:translateX(-50%);
   width:640px;height:640px;
   background:radial-gradient(ellipse,rgba(240,25,125,0.09) 0%,transparent 62%);
   pointer-events:none;
 }
 .hero-blob-2{
-  position:absolute;
-  bottom:-80px;right:-100px;
+  position:absolute;bottom:-80px;right:-100px;
   width:400px;height:400px;
   background:radial-gradient(ellipse,rgba(201,168,76,0.06) 0%,transparent 65%);
   pointer-events:none;
 }
-
-/* wordmark */
 .wordmark{
   font-family:var(--font-mark);
-  font-size:clamp(32px,9vw,52px);
+  font-size:clamp(36px,9vw,54px); /* bumped */
   font-weight:700;
   color:var(--gold);
   letter-spacing:0.01em;
@@ -118,11 +93,9 @@ body{
   animation:fadeUp .7s ease forwards, goldPulse 3.5s ease-in-out infinite 1.2s;
   opacity:0;
 }
-
-/* emotional trigger headline */
 .hero-trigger{
   font-family:var(--font-display);
-  font-size:clamp(13px,3.5vw,15px);
+  font-size:clamp(14px,3.8vw,16px); /* bumped */
   font-weight:500;
   letter-spacing:0.04em;
   text-transform:uppercase;
@@ -131,10 +104,9 @@ body{
   opacity:0;
   animation:fadeUp .6s ease forwards .18s;
 }
-
 .hero-hl{
   font-family:var(--font-display);
-  font-size:clamp(36px,9.5vw,58px);
+  font-size:clamp(40px,10vw,62px); /* bumped */
   font-weight:900;
   line-height:1.05;
   letter-spacing:-0.03em;
@@ -144,30 +116,25 @@ body{
 }
 .hero-hl .pink{color:var(--fuchsia);}
 .hero-hl .block{display:block;}
-
 .hero-eyes{
-  font-size:clamp(24px,6vw,34px);
+  font-size:clamp(26px,6vw,36px); /* bumped */
   margin-bottom:20px;
   opacity:0;
   animation:fadeUp .6s ease forwards .4s;
 }
-
 .hero-sub{
   font-family:var(--font-body);
-  font-size:15px;
+  font-size:16px; /* bumped from 15px */
   font-weight:400;
   color:var(--text-45);
   max-width:300px;
-  line-height:1.7;
+  line-height:1.75;
   margin-bottom:36px;
   opacity:0;
   animation:fadeUp .6s ease forwards .5s;
 }
-
-/* emotional recognition card */
 .hero-card{
-  width:100%;
-  max-width:340px;
+  width:100%;max-width:340px;
   background:var(--surface-1);
   border:1px solid var(--text-07);
   border-left:3px solid var(--fuchsia);
@@ -179,37 +146,26 @@ body{
 }
 .hero-card .eyebrow{
   font-family:var(--font-body);
-  font-size:10px;
+  font-size:11px; /* bumped */
   font-weight:700;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--fuchsia);
-  margin-bottom:10px;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--fuchsia);margin-bottom:10px;
 }
 .hero-card p{
   font-family:var(--font-body);
-  font-size:15px;
+  font-size:16px; /* bumped from 15px */
   color:var(--text-75);
-  line-height:1.72;
+  line-height:1.75;
   font-style:italic;
 }
-.hero-card strong{
-  font-style:normal;
-  color:var(--text-100);
-  font-weight:600;
-}
+.hero-card strong{font-style:normal;color:var(--text-100);font-weight:600;}
 .hero-card .soft{
-  display:block;
-  margin-top:10px;
-  font-size:13px;
-  color:var(--text-25);
-  font-style:normal;
+  display:block;margin-top:10px;
+  font-size:14px; /* bumped from 13px */
+  color:var(--text-25);font-style:normal;
 }
-
-/* scroll hint */
 .scroll-hint{
-  position:absolute;
-  bottom:24px;left:50%;
+  position:absolute;bottom:24px;left:50%;
   transform:translateX(-50%);
   display:flex;flex-direction:column;align-items:center;gap:5px;
   opacity:0;
@@ -217,56 +173,40 @@ body{
 }
 .scroll-hint span{
   font-family:var(--font-body);
-  font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase; /* bumped */
   color:var(--text-25);
 }
 .scroll-arrow{animation:bob 2.4s ease-in-out infinite;}
 
-/* ═══════════════════════════════════════
-   INTRO
-═══════════════════════════════════════ */
+/* ═══ INTRO ═══ */
 .intro{
-  max-width:520px;
-  margin:0 auto;
-  padding:60px 28px 8px;
-  text-align:center;
+  max-width:520px;margin:0 auto;
+  padding:60px 28px 8px;text-align:center;
 }
 .intro-hl{
   font-family:var(--font-display);
-  font-size:clamp(20px,5vw,26px);
-  font-weight:800;
-  line-height:1.3;
-  letter-spacing:-0.02em;
-  margin-bottom:14px;
+  font-size:clamp(22px,5.5vw,28px); /* bumped */
+  font-weight:800;line-height:1.3;
+  letter-spacing:-0.02em;margin-bottom:14px;
   color:var(--text-100);
 }
 .intro-hl .pink{color:var(--fuchsia);}
 .intro-body{
   font-family:var(--font-body);
-  font-size:15px;
-  color:var(--text-45);
-  line-height:1.8;
+  font-size:16px; /* bumped from 15px */
+  color:var(--text-45);line-height:1.85;
 }
 .intro-body strong{color:var(--text-75);font-weight:500;}
 .intro-cta{
-  display:inline-block;
-  margin-top:16px;
-  color:var(--fuchsia);
-  font-weight:600;
-  font-style:italic;
-  font-size:15px;
+  display:inline-block;margin-top:16px;
+  color:var(--fuchsia);font-weight:600;
+  font-style:italic;font-size:16px; /* bumped */
 }
 
-/* ═══════════════════════════════════════
-   VAULT DIVIDER
-═══════════════════════════════════════ */
+/* ═══ VAULT DIVIDER ═══ */
 .vault-divider{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  max-width:520px;
-  margin:44px auto 0;
-  padding:0 20px;
+  display:flex;align-items:center;gap:14px;
+  max-width:520px;margin:44px auto 0;padding:0 20px;
 }
 .vault-divider .line{
   flex:1;height:1px;
@@ -274,68 +214,46 @@ body{
 }
 .vault-divider .label{
   font-family:var(--font-body);
-  font-size:10px;font-weight:700;
+  font-size:11px;font-weight:700; /* bumped */
   letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);
-  white-space:nowrap;
+  color:var(--gold);white-space:nowrap;
 }
 
-/* ═══════════════════════════════════════
-   PROMPTS WRAPPER
-═══════════════════════════════════════ */
+/* ═══ PROMPTS WRAPPER ═══ */
 .prompts-wrap{
-  max-width:560px;
-  margin:0 auto;
+  max-width:560px;margin:0 auto;
   padding:32px 20px 28px;
 }
 
-/* ═══════════════════════════════════════
-   COMMENTARY
-═══════════════════════════════════════ */
+/* ═══ COMMENTARY ═══ */
 .commentary{
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
+  display:flex;align-items:flex-start;gap:10px;
   padding:20px 6px 6px;
   font-family:var(--font-body);
-  font-size:14px;
+  font-size:15px; /* bumped from 14px */
   font-weight:400;
-  color:var(--text-45);
-  font-style:italic;
-  line-height:1.55;
+  color:var(--text-45);font-style:italic;line-height:1.6;
 }
 .commentary .pip{
   width:5px;height:5px;border-radius:50%;
   background:var(--fuchsia);opacity:.5;
-  flex-shrink:0;margin-top:7px;
+  flex-shrink:0;margin-top:8px;
 }
 
-/* ═══════════════════════════════════════
-   PROMPT CARD — BASE
-═══════════════════════════════════════ */
+/* ═══ PROMPT CARD ═══ */
 .prompt-card{
   background:var(--surface-2);
   border:1px solid var(--text-07);
   border-radius:var(--r-xl);
-  padding:30px 26px 24px;
+  padding:32px 28px 26px; /* slightly more breathing room */
   margin-bottom:16px;
-  position:relative;
-  overflow:hidden;
-  opacity:0;
-  transform:translateY(24px);
-  transition:
-    opacity .5s ease,
-    transform .5s ease,
-    border-color .3s ease,
-    box-shadow .3s ease,
-    background .25s ease;
+  position:relative;overflow:hidden;
+  opacity:0;transform:translateY(24px);
+  transition:opacity .5s ease,transform .5s ease,border-color .3s ease,box-shadow .3s ease,background .25s ease;
 }
 .prompt-card.visible{opacity:1;transform:translateY(0);}
-
-/* top shimmer line */
 .prompt-card::before{
-  content:'';
-  position:absolute;
+  content:'';position:absolute;
   top:0;left:15%;right:15%;height:1px;
   background:linear-gradient(90deg,transparent,rgba(240,25,125,.3),transparent);
   opacity:0;transition:opacity .3s;
@@ -346,111 +264,73 @@ body{
   background:var(--surface-3);
 }
 .prompt-card:hover::before{opacity:1;}
-
-/* ── FEATURED CARD ── */
 .prompt-card.feat{
   background:linear-gradient(150deg,#1a0e16 0%,#161616 55%,#161616 100%);
   border-color:rgba(240,25,125,.22);
 }
 .prompt-card.feat::before{opacity:.6;}
-
-/* gold top accent for featured */
 .prompt-card.feat::after{
-  content:'';
-  position:absolute;
+  content:'';position:absolute;
   top:0;left:0;right:0;height:2px;
   background:linear-gradient(90deg,transparent,var(--gold-30),transparent);
 }
-
-/* ── CARD ANATOMY ── */
 .card-eye{
   display:flex;align-items:center;gap:8px;
-  margin-bottom:12px;
+  margin-bottom:14px; /* bumped */
 }
-
-/* vault number — GOLD, display font */
 .card-num{
   font-family:var(--font-display);
-  font-size:11px;font-weight:700;
+  font-size:12px;font-weight:700; /* bumped */
   letter-spacing:.2em;text-transform:uppercase;
   color:var(--gold);
 }
-
 .card-badge{
   font-family:var(--font-body);
-  font-size:10px;font-weight:700;
+  font-size:11px;font-weight:700; /* bumped */
   letter-spacing:.12em;text-transform:uppercase;
   color:var(--fuchsia);
   background:var(--fuchsia-10);
   border:1px solid var(--fuchsia-20);
-  padding:3px 10px;border-radius:100px;
+  padding:4px 12px;border-radius:100px;
 }
-
-/* TITLE — biggest, boldest, Cabinet Black */
 .card-title{
   font-family:var(--font-display);
-  font-size:clamp(22px,6vw,28px);
-  font-weight:900;
-  line-height:1.1;
+  font-size:clamp(24px,6.5vw,30px); /* bumped */
+  font-weight:900;line-height:1.1;
   letter-spacing:-0.025em;
-  color:var(--text-100);
-  margin-bottom:8px;
+  color:var(--text-100);margin-bottom:10px;
 }
-
-/* DESCRIPTOR — Satoshi, whisper weight */
 .card-desc{
   font-family:var(--font-body);
-  font-size:14px;
-  font-weight:300;
-  color:var(--text-45);
-  font-style:italic;
-  line-height:1.55;
-  margin-bottom:22px;
+  font-size:15px; /* bumped from 14px */
+  font-weight:300;color:var(--text-45);
+  font-style:italic;line-height:1.6;margin-bottom:22px;
 }
+.card-rule{height:1px;background:var(--text-07);margin-bottom:22px;}
 
-.card-rule{
-  height:1px;
-  background:var(--text-07);
-  margin-bottom:22px;
-}
-
-/* PROMPT BODY — Satoshi Regular */
 .prompt-body{
   font-family:var(--font-body);
-  font-size:14px;
-  font-weight:400;
-  line-height:1.85;
+  font-size:15px; /* bumped from 14px */
+  font-weight:400;line-height:1.9; /* more generous line height */
   color:var(--text-75);
-  white-space:pre-wrap;
-  word-break:break-word;
+  white-space:pre-wrap;word-break:break-word;
 }
-
-/* PLACEHOLDERS — fuchsia, punchy */
 .ph{
-  color:var(--fuchsia);
-  font-weight:700;
+  color:var(--fuchsia);font-weight:700;
   background:var(--fuchsia-06);
-  padding:2px 7px;
-  border-radius:6px;
-  font-style:normal;
+  padding:2px 7px;border-radius:6px;font-style:normal;
 }
-
-/* COPY BUTTON */
 .copy-btn{
   display:flex;align-items:center;justify-content:center;gap:8px;
-  width:100%;
-  margin-top:22px;
-  padding:16px 20px;
-  background:var(--fuchsia);
-  border:none;
+  width:100%;margin-top:22px;
+  padding:18px 20px; /* taller tap target */
+  background:var(--fuchsia);border:none;
   border-radius:var(--r-md);
   color:var(--text-100);
   font-family:var(--font-body);
-  font-size:14px;font-weight:700;
-  letter-spacing:.04em;
-  text-transform:uppercase;
-  cursor:pointer;
-  min-height:52px;
+  font-size:15px;font-weight:700; /* bumped */
+  letter-spacing:.04em;text-transform:uppercase;
+  cursor:pointer;min-height:56px; /* taller */
   transition:opacity .2s,transform .15s,box-shadow .2s;
   -webkit-tap-highlight-color:transparent;
   box-shadow:0 4px 24px rgba(240,25,125,.3);
@@ -459,232 +339,161 @@ body{
 .copy-btn:active{transform:scale(.98);}
 .copy-btn.copied{
   background:linear-gradient(135deg,#1a1a1a,#222);
-  color:var(--fuchsia);
-  box-shadow:none;
+  color:var(--fuchsia);box-shadow:none;
   border:1.5px solid var(--fuchsia-20);
 }
-
-/* OUTCOME LINE */
 .card-outcome{
   margin-top:14px;
   font-family:var(--font-body);
-  font-size:12.5px;
-  font-weight:300;
-  color:var(--text-25);
-  font-style:italic;
-  text-align:center;
-  line-height:1.55;
+  font-size:14px; /* bumped from 12.5px */
+  font-weight:300;color:var(--text-25);
+  font-style:italic;text-align:center;line-height:1.6;
 }
 
-/* ═══════════════════════════════════════
-   SEE EXAMPLE
-═══════════════════════════════════════ */
+/* ═══ SEE EXAMPLE ═══ */
 .ex-toggle{
   display:inline-flex;align-items:center;gap:7px;
-  margin-top:18px;
-  background:none;border:none;
+  margin-top:18px;background:none;border:none;
   color:var(--text-45);
   font-family:var(--font-body);
-  font-size:13px;font-weight:500;
+  font-size:14px;font-weight:500; /* bumped */
   cursor:pointer;padding:0;
   transition:color .2s;
   -webkit-tap-highlight-color:transparent;
 }
 .ex-toggle:hover{color:var(--fuchsia);}
-.ex-toggle .arr{display:inline-block;transition:transform .3s ease;font-size:16px;line-height:1;}
+.ex-toggle .arr{display:inline-block;transition:transform .3s ease;font-size:17px;line-height:1;}
 .ex-toggle.open .arr{transform:rotate(90deg);}
-
 .ex-panel{max-height:0;overflow:hidden;transition:max-height .44s cubic-bezier(.4,0,.2,1);}
 .ex-panel.open{max-height:900px;}
-
 .ex-inner{
-  margin-top:22px;
-  border-top:1px solid var(--text-07);
-  padding-top:22px;
-  display:flex;flex-direction:column;gap:14px;
+  margin-top:22px;border-top:1px solid var(--text-07);
+  padding-top:22px;display:flex;flex-direction:column;gap:14px;
 }
-
-.ex-cols{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
+.ex-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 @media(max-width:420px){.ex-cols{grid-template-columns:1fr;}}
-
 .ex-col{display:flex;flex-direction:column;gap:7px;}
-
 .ex-lbl{
   font-family:var(--font-body);
-  font-size:10px;font-weight:700;
+  font-size:11px;font-weight:700; /* bumped */
   letter-spacing:.16em;text-transform:uppercase;
 }
 .ex-lbl.b{color:var(--text-25);}
 .ex-lbl.a{color:var(--fuchsia);}
-
-.ex-block{
-  border-radius:var(--r-sm);
-  padding:14px 16px;
-  flex:1;
-}
-.ex-block.before{
-  background:rgba(255,255,255,.03);
-  border:1px solid var(--text-07);
-}
-.ex-block.after{
-  background:var(--fuchsia-06);
-  border:1px solid var(--fuchsia-20);
-}
-
+.ex-block{border-radius:var(--r-sm);padding:16px 18px;flex:1;} /* more padding */
+.ex-block.before{background:rgba(255,255,255,.03);border:1px solid var(--text-07);}
+.ex-block.after{background:var(--fuchsia-06);border:1px solid var(--fuchsia-20);}
 .ex-text{
   font-family:var(--font-body);
-  font-size:13px;font-weight:400;
-  line-height:1.65;color:var(--text-75);
+  font-size:14px;font-weight:400; /* bumped from 13px */
+  line-height:1.7;color:var(--text-75);
 }
 .ex-block.before .ex-text{color:var(--text-25);}
-
 .ex-wow{
   font-family:var(--font-body);
-  font-size:13px;font-weight:600;
-  font-style:italic;
-  color:var(--fuchsia);
+  font-size:14px;font-weight:600; /* bumped from 13px */
+  font-style:italic;color:var(--fuchsia);
   text-align:center;
-  padding:12px 16px;
+  padding:14px 18px;
   background:var(--fuchsia-06);
   border:1px solid var(--fuchsia-20);
-  border-radius:var(--r-sm);
-  line-height:1.5;
+  border-radius:var(--r-sm);line-height:1.55;
 }
 
-/* ═══════════════════════════════════════
-   BRIDGE
-═══════════════════════════════════════ */
-.bridge{
-  max-width:520px;
-  margin:36px auto 0;
-  padding:0 28px;
-}
+/* ═══ BRIDGE ═══ */
+.bridge{max-width:520px;margin:36px auto 0;padding:0 28px;}
 .bridge-card{
   background:var(--surface-1);
   border:1px solid var(--text-07);
   border-top:2px solid var(--gold-30);
   border-radius:var(--r-xl);
-  padding:32px 28px;
-  text-align:center;
+  padding:36px 30px;text-align:center;
 }
-.bridge-emoji{font-size:28px;margin-bottom:16px;}
+.bridge-emoji{font-size:30px;margin-bottom:16px;} /* bumped */
 .bridge-hl{
   font-family:var(--font-display);
-  font-size:clamp(18px,5vw,22px);
-  font-weight:800;
-  line-height:1.3;
+  font-size:clamp(20px,5.5vw,24px); /* bumped */
+  font-weight:800;line-height:1.3;
   letter-spacing:-0.02em;
-  color:var(--text-100);
-  margin-bottom:12px;
+  color:var(--text-100);margin-bottom:12px;
 }
 .bridge-hl .pink{color:var(--fuchsia);}
 .bridge-body{
   font-family:var(--font-body);
-  font-size:15px;
-  color:var(--text-45);
-  line-height:1.8;
+  font-size:16px; /* bumped from 15px */
+  color:var(--text-45);line-height:1.85;
 }
 .bridge-body strong{color:var(--text-75);font-weight:500;}
 
-/* ═══════════════════════════════════════
-   CLOSE / CTA
-═══════════════════════════════════════ */
+/* ═══ CLOSE ═══ */
 .close-section{
-  max-width:520px;
-  margin:0 auto;
-  padding:64px 28px 48px;
-  text-align:center;
-  border-top:1px solid var(--text-07);
-  margin-top:60px;
+  max-width:520px;margin:0 auto;
+  padding:64px 28px 48px;text-align:center;
+  border-top:1px solid var(--text-07);margin-top:60px;
 }
-
 .ev-badge{
   display:inline-flex;align-items:center;gap:7px;
-  background:var(--gold-06);
-  border:1px solid var(--gold-12);
-  border-radius:100px;
-  padding:7px 16px;
+  background:var(--gold-06);border:1px solid var(--gold-12);
+  border-radius:100px;padding:8px 18px; /* bumped */
   font-family:var(--font-body);
-  font-size:11px;font-weight:700;
+  font-size:12px;font-weight:700; /* bumped */
   letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:28px;
+  color:var(--gold);margin-bottom:28px;
 }
-
 .close-hl{
   font-family:var(--font-display);
-  font-size:clamp(26px,7vw,36px);
-  font-weight:900;
-  line-height:1.15;
-  letter-spacing:-0.025em;
-  margin-bottom:18px;
+  font-size:clamp(28px,7.5vw,38px); /* bumped */
+  font-weight:900;line-height:1.15;
+  letter-spacing:-0.025em;margin-bottom:18px;
 }
 .close-hl .pink{color:var(--fuchsia);}
-
 .close-body{
   font-family:var(--font-body);
-  font-size:15px;
-  color:var(--text-45);
-  line-height:1.8;
-  max-width:300px;
-  margin:0 auto 36px;
+  font-size:16px; /* bumped from 15px */
+  color:var(--text-45);line-height:1.85;
+  max-width:300px;margin:0 auto 36px;
 }
-
 .follow-btn{
   display:inline-flex;align-items:center;gap:10px;
-  padding:18px 32px;
+  padding:20px 34px; /* taller */
   background:var(--fuchsia);
   color:var(--text-100);
   font-family:var(--font-body);
-  font-size:15px;font-weight:700;
+  font-size:16px;font-weight:700; /* bumped */
   letter-spacing:.04em;text-transform:uppercase;
-  border-radius:var(--r-md);
-  text-decoration:none;
+  border-radius:var(--r-md);text-decoration:none;
   box-shadow:0 4px 28px rgba(240,25,125,.32);
   transition:opacity .2s,transform .2s,box-shadow .2s;
   -webkit-tap-highlight-color:transparent;
 }
 .follow-btn:hover{opacity:.88;transform:translateY(-2px);box-shadow:0 8px 36px rgba(240,25,125,.4);}
 
-/* ═══════════════════════════════════════
-   SITE FOOTER
-═══════════════════════════════════════ */
-.site-footer{
-  border-top:1px solid var(--text-07);
-  padding:32px 28px 44px;
-}
+/* ═══ FOOTER ═══ */
+.site-footer{border-top:1px solid var(--text-07);padding:36px 28px 48px;}
 .footer-inner{
-  max-width:520px;
-  margin:0 auto;
-  text-align:center;
-  display:flex;flex-direction:column;gap:10px;
+  max-width:520px;margin:0 auto;
+  text-align:center;display:flex;flex-direction:column;gap:12px;
 }
 .footer-brand{
   font-family:var(--font-mark);
-  font-size:20px;color:var(--gold);
+  font-size:22px;color:var(--gold); /* bumped */
   text-shadow:0 0 14px rgba(201,168,76,.4);
 }
 .footer-by{
   font-family:var(--font-body);
-  font-size:12px;color:var(--text-25);line-height:1.65;
+  font-size:13px;color:var(--text-25);line-height:1.7; /* bumped from 12px */
 }
 .footer-links{
   display:flex;flex-wrap:wrap;
   justify-content:center;align-items:center;
   gap:6px 10px;
   font-family:var(--font-body);
-  font-size:12px;color:var(--text-25);
+  font-size:13px;color:var(--text-25); /* bumped from 12px */
 }
 .footer-links a{color:var(--text-45);text-decoration:none;transition:color .2s;}
 .footer-links a:hover{color:var(--fuchsia);}
 
-/* ═══════════════════════════════════════
-   ANIMATIONS
-═══════════════════════════════════════ */
+/* ═══ ANIMATIONS ═══ */
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(20px);}
   to{opacity:1;transform:translateY(0);}
@@ -698,13 +507,11 @@ body{
   50%{text-shadow:0 0 36px rgba(201,168,76,.85),0 0 80px rgba(201,168,76,.45),0 0 140px rgba(201,168,76,.2);}
 }
 
-/* ═══════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════ */
+/* ═══ RESPONSIVE ═══ */
 @media(max-width:400px){
   .hero{padding:72px 20px 60px;}
   .prompts-wrap{padding:24px 16px;}
-  .prompt-card{padding:24px 18px 20px;}
+  .prompt-card{padding:26px 20px 22px;}
   .bridge{padding:0 20px;}
   .close-section{padding:52px 20px 40px;}
 }
@@ -712,26 +519,21 @@ body{
 </head>
 <body>
 
-<!-- ════════ HERO ════════ -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-blob"></div>
   <div class="hero-blob-2"></div>
-
   <div class="wordmark">It's as Simple as Chat...</div>
-
   <p class="hero-trigger">why does ChatGPT work for everyone but me? 😭</p>
-
   <h1 class="hero-hl">
-    <span class="block">5 Prompts That</span>
-    <span class="block pink">Finally Make It</span>
-    <span class="block">Click 👀</span>
+    <span class="block">5 Prompts Your</span>
+    <span class="block pink">Content has been</span>
+    <span class="block">Missing 👀</span>
   </h1>
-
   <p class="hero-sub">
     You've been in ChatGPT this whole time.<br>
     You just needed better ways to talk to it.
   </p>
-
   <div class="hero-card">
     <p class="eyebrow">real talk</p>
     <p>
@@ -739,7 +541,6 @@ body{
       <strong>You just need to know how to prompt it.</strong>
     </p>
   </div>
-
   <div class="scroll-hint">
     <span>scroll to start</span>
     <svg class="scroll-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -748,7 +549,7 @@ body{
   </div>
 </section>
 
-<!-- ════════ INTRO ════════ -->
+<!-- INTRO -->
 <div class="intro">
   <h2 class="intro-hl">
     You don't need a new tool.<br>You need <span class="pink">better direction.</span>
@@ -760,17 +561,16 @@ body{
   </p>
 </div>
 
-<!-- vault divider -->
 <div class="vault-divider">
   <div class="line"></div>
   <span class="label">✦ The Vault ✦</span>
   <div class="line"></div>
 </div>
 
-<!-- ════════ PROMPTS ════════ -->
+<!-- PROMPTS -->
 <div class="prompts-wrap">
 
-  <!-- ── CARD 1 ── -->
+  <!-- CARD 1 -->
   <div class="prompt-card" data-card>
     <div class="card-eye">
       <span class="card-num">Vault 01</span>
@@ -805,7 +605,7 @@ Keep everything realistic, modern, and focused on real social media behavior.</d
     Once you know who you're really talking to… watch how differently everything starts to land. 🖤
   </div>
 
-  <!-- ── CARD 2 ── -->
+  <!-- CARD 2 -->
   <div class="prompt-card" data-card>
     <div class="card-eye"><span class="card-num">Vault 02</span></div>
     <h2 class="card-title">Make It Look Like You</h2>
@@ -837,7 +637,7 @@ Make the final result feel intentional, modern, and easy to maintain across soci
     Okay NOW we're getting somewhere. This one changes how your whole page FEELS to people. 👀
   </div>
 
-  <!-- ── CARD 3 — FEATURED ── -->
+  <!-- CARD 3 FEATURED -->
   <div class="prompt-card feat" data-card>
     <div class="card-eye">
       <span class="card-num">Vault 03</span>
@@ -865,7 +665,6 @@ Keep the tone warm, conversational, confident, and easy to understand.</div>
       Copy Prompt
     </button>
     <p class="card-outcome">Content that finally sounds like a real person wrote it — because that's what people actually stop for.</p>
-
     <button class="ex-toggle" onclick="toggleEx('ex3',this)">
       <span class="arr">›</span> See the difference →
     </button>
@@ -895,7 +694,7 @@ Keep the tone warm, conversational, confident, and easy to understand.</div>
     This one right here? Whew. 👀 This is the one that saves people HOURS of staring at a blank screen honestly.
   </div>
 
-  <!-- ── CARD 4 ── -->
+  <!-- CARD 4 -->
   <div class="prompt-card" data-card>
     <div class="card-eye"><span class="card-num">Vault 04</span></div>
     <h2 class="card-title">Plan Your Next Video</h2>
@@ -928,7 +727,7 @@ Keep everything conversational and easy to film without a big production setup.<
     Last one. And honestly? This might be the one people come back to the most. 👇
   </div>
 
-  <!-- ── CARD 5 — FEATURED ── -->
+  <!-- CARD 5 FEATURED -->
   <div class="prompt-card feat" data-card>
     <div class="card-eye">
       <span class="card-num">Vault 05</span>
@@ -957,7 +756,6 @@ Keep the tone modern, conversational, and easy to post across different platform
       Copy Prompt
     </button>
     <p class="card-outcome">One idea. Multiple platforms. All done without starting over every single time.</p>
-
     <button class="ex-toggle" onclick="toggleEx('ex5',this)">
       <span class="arr">›</span> See the difference →
     </button>
@@ -984,7 +782,7 @@ Keep the tone modern, conversational, and easy to post across different platform
 
 </div><!-- /prompts-wrap -->
 
-<!-- ════════ BRIDGE ════════ -->
+<!-- BRIDGE -->
 <div class="bridge">
   <div class="bridge-card">
     <div class="bridge-emoji">💬</div>
@@ -999,32 +797,29 @@ Keep the tone modern, conversational, and easy to post across different platform
   </div>
 </div>
 
-<!-- ════════ CLOSE ════════ -->
+<!-- CLOSE -->
 <section class="close-section">
   <div class="ev-badge">✨ The Elite Vault</div>
-
   <h2 class="close-hl">
     You do <span class="pink">NOT</span> need<br>
     47 AI tools to create<br>
     better content.
   </h2>
-
   <p class="close-body">
     You just need better direction.<br><br>
     The Elite Vault™ is where creators get stronger content, better ideas, and more personality out of the tools they already use. 👀
   </p>
-
   <a href="https://www.facebook.com/EliteVaultSNJ" target="_blank" rel="noopener" class="follow-btn">
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8.5 2H6.5C5.4 2 4.5 2.9 4.5 4v1.5H3v2h1.5V14h2.5V7.5H8.4l.6-2H7V4c0-.3.2-.5.5-.5H9L8.5 2z" fill="currentColor"/></svg>
     Follow The Elite Vault
   </a>
 </section>
 
-<!-- ════════ FOOTER ════════ -->
+<!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">Simple As Chat ✨</div>
-    <p class="footer-by">By The Elite Vault · Operated by Sabrina Nichols Johnson, LLC · Educational purposes only.</p>
+    <p class="footer-by">By The Elite Vault™ · Operated by Sabrina Nichols Johnson, LLC · Educational purposes only.</p>
     <div class="footer-links">
       <span>© 2026 Sabrina Nichols Johnson, LLC</span>
       <span>·</span>
@@ -1038,7 +833,6 @@ Keep the tone modern, conversational, and easy to post across different platform
 </footer>
 
 <script>
-// ── COPY ──
 function copyPrompt(id,btn){
   const el=document.getElementById(id);
   const ok=()=>{
@@ -1060,8 +854,6 @@ function fb(t,cb){
   try{document.execCommand('copy');cb();}catch(e){}
   document.body.removeChild(ta);
 }
-
-// ── EXAMPLE TOGGLE ──
 function toggleEx(id,btn){
   const p=document.getElementById(id);
   const open=p.classList.toggle('open');
@@ -1070,8 +862,6 @@ function toggleEx(id,btn){
     ?`<span class="arr" style="display:inline-block;transform:rotate(90deg)">›</span> Hide example ↑`
     :`<span class="arr">›</span> See the difference →`;
 }
-
-// ── SCROLL REVEAL ──
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
