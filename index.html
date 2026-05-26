@@ -185,22 +185,71 @@ body{
 }
 .intro-hl{
   font-family:var(--font-display);
-  font-size:clamp(22px,5.5vw,28px); /* bumped */
-  font-weight:800;line-height:1.3;
-  letter-spacing:-0.02em;margin-bottom:14px;
+  font-size:clamp(28px,7.5vw,38px);
+  font-weight:900;line-height:1.2;
+  letter-spacing:-0.03em;margin-bottom:18px;
   color:var(--text-100);
+  animation:introFlicker 5s ease-in-out infinite;
 }
-.intro-hl .pink{color:var(--fuchsia);}
+.intro-hl .pink{
+  color:var(--fuchsia);
+  display:inline-block;
+  animation:pinkPop 5s ease-in-out infinite;
+}
 .intro-body{
   font-family:var(--font-body);
-  font-size:16px; /* bumped from 15px */
-  color:var(--text-45);line-height:1.85;
+  font-size:18px;
+  color:var(--text-45);line-height:1.9;
 }
-.intro-body strong{color:var(--text-75);font-weight:500;}
+.intro-body strong{
+  color:var(--text-100);
+  font-weight:700;
+  position:relative;
+  display:inline-block;
+  animation:strongGlow 3s ease-in-out infinite;
+}
 .intro-cta{
-  display:inline-block;margin-top:16px;
-  color:var(--fuchsia);font-weight:600;
-  font-style:italic;font-size:16px; /* bumped */
+  display:inline-block;margin-top:20px;
+  color:var(--fuchsia);font-weight:700;
+  font-style:italic;font-size:19px;
+  animation:ctaPulse 2.4s ease-in-out infinite;
+  letter-spacing:0.01em;
+}
+
+@keyframes introFlicker{
+  0%,100%{opacity:1;}
+  48%{opacity:1;}
+  50%{opacity:.7;}
+  52%{opacity:1;}
+  78%{opacity:1;}
+  80%{opacity:.55;}
+  82%{opacity:1;}
+}
+@keyframes pinkPop{
+  0%,100%{
+    color:var(--fuchsia);
+    text-shadow:none;
+  }
+  45%,55%{
+    color:#ff2d8a;
+    text-shadow:0 0 18px rgba(240,25,125,.9),0 0 40px rgba(240,25,125,.45);
+  }
+}
+@keyframes strongGlow{
+  0%,100%{color:var(--text-100);text-shadow:none;}
+  50%{color:#fff;text-shadow:0 0 12px rgba(255,255,255,.4);}
+}
+@keyframes ctaPulse{
+  0%,100%{
+    opacity:.85;
+    text-shadow:none;
+    transform:translateY(0);
+  }
+  50%{
+    opacity:1;
+    text-shadow:0 0 16px rgba(240,25,125,.7),0 0 32px rgba(240,25,125,.3);
+    transform:translateY(-2px);
+  }
 }
 
 /* ═══ VAULT DIVIDER ═══ */
@@ -527,7 +576,7 @@ body{
   <p class="hero-trigger">why does ChatGPT work for everyone but me? 😭</p>
   <h1 class="hero-hl">
     <span class="block">5 Prompts Your</span>
-    <span class="block pink">Content has been</span>
+    <span class="block pink">Content Has Been</span>
     <span class="block">Missing 👀</span>
   </h1>
   <p class="hero-sub">
@@ -552,7 +601,7 @@ body{
 <!-- INTRO -->
 <div class="intro">
   <h2 class="intro-hl">
-    You don't need a new tool.<br>You need <span class="pink">better direction.</span>
+    You don't need a new tool.<br>You need <span class="pink">better prompts.</span>
   </h2>
   <p class="intro-body">
     These 5 prompts work inside ChatGPT — the tool you're already in.<br>
@@ -792,7 +841,7 @@ Keep the tone modern, conversational, and easy to post across different platform
     <p class="bridge-body">
       Once you know how to direct it, ChatGPT starts feeling like<br>
       the creative partner it was always supposed to be.
-      <strong> You just needed better questions. Now you have them. 🖤</strong>
+      <strong> You just needed better prompts. Now you have them. </strong>
     </p>
   </div>
 </div>
@@ -802,11 +851,11 @@ Keep the tone modern, conversational, and easy to post across different platform
   <div class="ev-badge">✨ The Elite Vault</div>
   <h2 class="close-hl">
     You do <span class="pink">NOT</span> need<br>
-    47 AI tools to create<br>
+    10 NEW AI tools to create<br>
     better content.
   </h2>
   <p class="close-body">
-    You just need better direction.<br><br>
+    You just need better PROMPTS.<br><br>
     The Elite Vault™ is where creators get stronger content, better ideas, and more personality out of the tools they already use. 👀
   </p>
   <a href="https://www.facebook.com/EliteVaultSNJ" target="_blank" rel="noopener" class="follow-btn">
